@@ -30,12 +30,12 @@ enum Result<T> {
 //
 // The entity or business object
 //
-struct MobileDetail: Codable{
-    let thumbImageURL: String
-    let brand: String
-    let price: Float
-    let description: String
-    let name: String
-    let rating: Float
-    let id: Int
-}
+//struct MobileDetail: Codable{
+//    let thumbImageURL: String
+//    let brand: String
+//    let price: Float
+//    let description: String
+//    let name: String
+//    let rating: Float
+//    let id: Int
+//}

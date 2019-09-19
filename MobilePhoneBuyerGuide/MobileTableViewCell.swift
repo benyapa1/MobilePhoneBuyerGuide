@@ -44,13 +44,13 @@ class MobileTableViewCell: UITableViewCell {
         favButton.isHidden = isHidden
     }
     
-    func setViewByItem(mobileItem: mobileItem) {
-        descriptionLabel.text = mobileItem.mobileDetail.description
-        nameLabel.text = mobileItem.mobileDetail.name
-        priceLabel.text = "Price: $\(mobileItem.mobileDetail.price)"
-        ratingLabel.text = "Rating: \(mobileItem.mobileDetail.rating)"
-        favButton.isSelected = mobileItem.isFav
-        mobileImageView.kf.setImage(with: URL(string: mobileItem.mobileDetail.thumbImageURL))
+    func setViewByItem(mobile: Mobile) {
+        descriptionLabel.text = mobile.description
+        nameLabel.text = mobile.name
+        priceLabel.text = "Price: $\(mobile.price)"
+        ratingLabel.text = "Rating: \(mobile.rating)"
+        favButton.isSelected = mobile.isFav
+        mobileImageView.kf.setImage(with: URL(string: mobile.thumbImageURL))
     }
     
 }

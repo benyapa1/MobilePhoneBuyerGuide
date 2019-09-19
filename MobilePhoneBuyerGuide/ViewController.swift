@@ -10,11 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private var mobileList: [mobileItem] = []
-    private var mobilesListShow: [mobileItem] = []
+    private var mobileList: [Mobile] = []
+    private var mobilesListShow: [Mobile] = []
     private var state: Bool = true //state true = All, false = Favourite
-
-
     @IBOutlet weak var allButton: UIButton!
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -25,6 +23,14 @@ class ViewController: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: "MobileTableViewCellIdentifier")
         allButton.isSelected = true
         getAPI()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let item = sender as? Mobile,
+            segue.identifier == "showDetail",
+            let viewController =  segue.destination as? MobileDetailViewController{
+            viewController.item = item
+        }
     }
     
     func showAlert(){
@@ -51,9 +57,7 @@ class ViewController: UIViewController {
     func getAPI() {
         APIManager().getListFromAPI(){
             [weak self] (mobiles) in
-            for mobile in mobiles {
-                self?.mobileList.append(mobileItem(mobileDetail: mobile, isFav: false))
-            }
+            self?.mobileList.append(contentsOf: mobiles)
             self?.mobilesListShow = self?.mobileList ?? []
             DispatchQueue.main.sync {
                 self?.tableView.reloadData()
@@ -73,25 +77,20 @@ class ViewController: UIViewController {
         self.state = false
         favButton.isSelected = true
         allButton.isSelected = false
-        self.mobilesListShow = mobileList.filter { (mobileItem) -> Bool in
-            return mobileItem.isFav
+        self.mobilesListShow = mobileList.filter { (item) -> Bool in
+            return item.isFav
         }
         tableView.reloadData()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        <#code#>
-    }
-    
-
     @IBAction func didClickSortButton(_ sender: Any){
         showAlert()
     }
     
     func searchShowItemInActualArray(indexRow: Int)  -> Int{
-        let id = mobilesListShow[indexRow].mobileDetail.id
+        let id = mobilesListShow[indexRow].id
         if let index = mobileList.firstIndex(where: { (item) -> Bool in
-            if item.mobileDetail.id == id {
+            if item.id == id {
                 return true
             }
             return false
@@ -114,7 +113,7 @@ extension ViewController: UITableViewDataSource{
             return UITableViewCell()
         }
         let item = mobilesListShow[indexPath.row]
-        cell.setViewByItem(mobileItem: item)
+        cell.setViewByItem(mobile: item)
         cell.delegate = self
         return cell
     }
@@ -122,7 +121,7 @@ extension ViewController: UITableViewDataSource{
 
 extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        print("Select Row")
+        self.performSegue(withIdentifier: "showDetail", sender: mobilesListShow[indexPath.row])
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return !state
@@ -134,7 +133,6 @@ extension ViewController: UITableViewDelegate{
             mobileList[index].isFav = false
             mobilesListShow.remove(at: indexPath.row)
             tableView.reloadData()
-            print("mobile list is fav \(mobileList[index].isFav)")
         }
     }
 }
@@ -147,8 +145,5 @@ extension ViewController: MobileTableViewCellDelegate{
             mobilesListShow[indexInView.row].isFav = isFav
         }
     }
-    
-    
-    
 }
 
