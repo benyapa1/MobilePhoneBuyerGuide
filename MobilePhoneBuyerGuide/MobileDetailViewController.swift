@@ -11,14 +11,15 @@ import UIKit
 class MobileDetailViewController: UIViewController {
     
     @IBOutlet weak var detailTextView: UITextView!
-    var item: Mobile?
+    @IBOutlet weak var collectionView: UICollectionView!
     
+    var item: Mobile?
+    private var mobileImages: [mobileImage] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         getAPI()
         setView()
-        
     }
     
     func setView() {
@@ -30,11 +31,29 @@ class MobileDetailViewController: UIViewController {
     func getAPI() {
         guard let item = item else { return }
         APIManager().getImageFromApi(mobileId: item.id) {
-            (mobileImage) in
-//            [weak self] (mobiles) in
-            print(mobileImage)
+            [weak self] (mobileImages) in
+            self?.mobileImages.append(contentsOf: mobileImages)
+            DispatchQueue.main.sync {
+                self?.collectionView.reloadData()
+            }
         }
     }
-    
+}
 
+extension MobileDetailViewController: UICollectionViewDelegate{
+    
+}
+
+extension MobileDetailViewController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return mobileImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MobileDetailCollectionCell", for: indexPath) as? MobileDetailCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.configCell(urlImage: mobileImages[indexPath.row].url)
+        return cell
+    }
 }

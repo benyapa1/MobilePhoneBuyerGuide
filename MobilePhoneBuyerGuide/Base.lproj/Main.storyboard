@@ -101,7 +101,7 @@
                         <viewLayoutGuide key="safeArea" id="Cgr-z4-6Hq"/>
                     </view>
                     <navigationItem key="navigationItem" id="gHJ-dN-5OZ">
-                        <barButtonItem key="rightBarButtonItem" title="Sort" style="plain" id="r2x-fk-Ml5">
+                        <barButtonItem key="rightBarButtonItem" title="Sort" id="r2x-fk-Ml5">
                             <connections>
                                 <action selector="didClickSortButton:" destination="0Zf-AM-NkP" id="lvZ-el-awB"/>
                             </connections>
@@ -127,22 +127,58 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="q1G-Cn-6oa">
-                                <rect key="frame" x="0.0" y="335" width="414" height="527"/>
+                                <rect key="frame" x="8" y="332" width="398" height="530"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4mt-hL-4Dl">
-                                <rect key="frame" x="0.0" y="88" width="414" height="239"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Uey-Q1-vvK">
+                                <rect key="frame" x="0.0" y="88" width="414" height="226"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </scrollView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mc2-FN-GZC">
+                                    <size key="itemSize" width="414" height="226"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MobileDetailCollectionCell" id="geb-p2-Hg2" customClass="MobileDetailCollectionViewCell" customModule="MobilePhoneBuyerGuide" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="226"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="226"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ekS-Zw-LFw">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="226"/>
+                                                </imageView>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="ekS-Zw-LFw" firstAttribute="top" secondItem="geb-p2-Hg2" secondAttribute="top" id="0nc-dp-ySg"/>
+                                            <constraint firstAttribute="bottom" secondItem="ekS-Zw-LFw" secondAttribute="bottom" id="GRq-Y5-cp3"/>
+                                            <constraint firstAttribute="trailing" secondItem="ekS-Zw-LFw" secondAttribute="trailing" id="fWm-W5-rcO"/>
+                                            <constraint firstItem="ekS-Zw-LFw" firstAttribute="leading" secondItem="geb-p2-Hg2" secondAttribute="leading" id="vyH-it-apG"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="mobileImageView" destination="ekS-Zw-LFw" id="NzX-R8-wSP"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="yII-FB-5iQ" id="zZD-Bl-qFs"/>
+                                    <outlet property="delegate" destination="yII-FB-5iQ" id="6Mf-ht-J9y"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="K1K-3n-XV0"/>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="Uey-Q1-vvK" id="iQ7-gQ-9nn"/>
                         <outlet property="detailTextView" destination="q1G-Cn-6oa" id="QHP-ho-Tbx"/>
                     </connections>
                 </viewController>
