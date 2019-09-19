@@ -79,9 +79,28 @@ class ViewController: UIViewController {
         tableView.reloadData()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
+    }
+    
 
     @IBAction func didClickSortButton(_ sender: Any){
         showAlert()
+    }
+    
+    func searchShowItemInActualArray(indexRow: Int)  -> Int{
+        let id = mobilesListShow[indexRow].mobileDetail.id
+        if let index = mobileList.firstIndex(where: { (item) -> Bool in
+            if item.mobileDetail.id == id {
+                return true
+            }
+            return false
+            })
+        {
+            return index
+        }else {
+            return -1
+        }
     }
 }
 
@@ -111,29 +130,21 @@ extension ViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            let id = mobilesListShow[indexPath.row].mobileDetail.id
-            if let index = mobileList.firstIndex(where: { (item) -> Bool in
-                if item.mobileDetail.id == id {
-                    return true
-                }
-                return false
-            }){
-                mobileList[index].isFav = false
-                mobilesListShow.remove(at: indexPath.row)
-                tableView.reloadData()
-                print("mobile list is fav \(mobileList[index].isFav)")
-                
-            }
-            
+            let index = searchShowItemInActualArray(indexRow: indexPath.row)
+            mobileList[index].isFav = false
+            mobilesListShow.remove(at: indexPath.row)
+            tableView.reloadData()
+            print("mobile list is fav \(mobileList[index].isFav)")
         }
     }
 }
 
 extension ViewController: MobileTableViewCellDelegate{
     func doClickFav(cell: MobileTableViewCell, isFav: Bool) {
-        if let index = tableView.indexPath(for: cell){
-            mobileList[index.row].isFav = isFav
-            print(mobileList[index.row].isFav, index.row)
+        if let indexInView = tableView.indexPath(for: cell){
+            let index = searchShowItemInActualArray(indexRow: indexInView.row)
+            mobileList[index].isFav = isFav
+            mobilesListShow[indexInView.row].isFav = isFav
         }
     }
     
