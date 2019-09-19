@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol MobileTableViewCellDelegate {
     func doClickFav(cell: MobileTableViewCell, isFav: Bool)
@@ -28,12 +29,6 @@ class MobileTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
     
     @IBAction func clickFav(_ sender: Any) {
         if favButton.isSelected {
@@ -45,8 +40,8 @@ class MobileTableViewCell: UITableViewCell {
         
     }
     
-    func hideFavButton() {
-        
+    func hideFavButton(isHidden: Bool) {
+        favButton.isHidden = isHidden
     }
     
     func setViewByItem(mobileItem: mobileItem) {
@@ -55,14 +50,7 @@ class MobileTableViewCell: UITableViewCell {
         priceLabel.text = "Price: $\(mobileItem.mobileDetail.price)"
         ratingLabel.text = "Rating: \(mobileItem.mobileDetail.rating)"
 
-
-        if let urlImage = URL(string: mobileItem.mobileDetail.thumbImageURL) {
-            if let data = try? Data(contentsOf: urlImage) {
-                let uiImage = UIImage(data: data)
-                mobileImageView.image = uiImage
-            }
-
-        }
+        mobileImageView.kf.setImage(with: URL(string: mobileItem.mobileDetail.thumbImageURL))
     }
     
 }
