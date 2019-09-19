@@ -49,7 +49,7 @@ class MobileTableViewCell: UITableViewCell {
         nameLabel.text = mobileItem.mobileDetail.name
         priceLabel.text = "Price: $\(mobileItem.mobileDetail.price)"
         ratingLabel.text = "Rating: \(mobileItem.mobileDetail.rating)"
-
+        favButton.isSelected = mobileItem.isFav
         mobileImageView.kf.setImage(with: URL(string: mobileItem.mobileDetail.thumbImageURL))
     }
     

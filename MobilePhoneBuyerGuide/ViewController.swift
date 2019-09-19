@@ -12,7 +12,8 @@ class ViewController: UIViewController {
     
     private var mobileList: [mobileItem] = []
     private var mobilesListShow: [mobileItem] = []
-//    private var mobileListDetail: [mobileDetail] = []
+    private var state: Bool = true //state true = All, false = Favourite
+
 
     @IBOutlet weak var allButton: UIButton!
     @IBOutlet weak var favButton: UIButton!
@@ -20,8 +21,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-//        let bundle = Bundle(for: MobileCollectionViewCell.self)
         let nib = UINib(nibName: "MobileTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "MobileTableViewCellIdentifier")
         allButton.isSelected = true
@@ -52,7 +51,6 @@ class ViewController: UIViewController {
     func getAPI() {
         APIManager().getListFromAPI(){
             [weak self] (mobiles) in
-//            self?.mobileListDetail.append(contentsOf: mobiles)
             for mobile in mobiles {
                 self?.mobileList.append(mobileItem(mobileDetail: mobile, isFav: false))
             }
@@ -64,6 +62,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didClickAllButton(_ sender: Any) {
+        self.state = true
         allButton.isSelected = true
         favButton.isSelected = false
         self.mobilesListShow = mobileList
@@ -71,6 +70,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didClickFavButton(_ sender: Any) {
+        self.state = false
         favButton.isSelected = true
         allButton.isSelected = false
         self.mobilesListShow = mobileList.filter { (mobileItem) -> Bool in
@@ -105,6 +105,28 @@ extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
         print("Select Row")
     }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return !state
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            let id = mobilesListShow[indexPath.row].mobileDetail.id
+            if let index = mobileList.firstIndex(where: { (item) -> Bool in
+                if item.mobileDetail.id == id {
+                    return true
+                }
+                return false
+            }){
+                mobileList[index].isFav = false
+                mobilesListShow.remove(at: indexPath.row)
+                tableView.reloadData()
+                print("mobile list is fav \(mobileList[index].isFav)")
+                
+            }
+            
+        }
+    }
 }
 
 extension ViewController: MobileTableViewCellDelegate{
@@ -114,6 +136,7 @@ extension ViewController: MobileTableViewCellDelegate{
             print(mobileList[index.row].isFav, index.row)
         }
     }
+    
     
     
 }
