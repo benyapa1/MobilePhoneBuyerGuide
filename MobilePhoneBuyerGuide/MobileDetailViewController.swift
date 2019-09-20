@@ -37,16 +37,27 @@ class MobileDetailViewController: UIViewController {
         guard let item = item else { return }
         APIManager().getImageFromApi(mobileId: item.id) {
             [weak self] (mobileImages) in
-            self?.mobileImages.append(contentsOf: mobileImages)
+            self?.mobileImages = mobileImages.map({ (image) -> mobileImage in
+                if (image.url.starts(with: "https://")){
+                    return image
+                }else {
+                    if let index = image.url.firstIndex(of: "w") , image.url.contains("www."){
+                        let url = image.url.suffix(from: index)
+//                        var urlNew = "https://\(String(url))"
+                        return mobileImage(mobileId: image.mobileId,
+                                           url: "https://" + String(url),
+                                    id: image.id)
+                        
+                    }
+                    return image
+                }
+            })
+//            append(contentsOf: mobileImages)
             DispatchQueue.main.sync {
                 self?.collectionView.reloadData()
             }
         }
     }
-}
-
-extension MobileDetailViewController: UICollectionViewDelegate{
-    
 }
 
 extension MobileDetailViewController: UICollectionViewDataSource{

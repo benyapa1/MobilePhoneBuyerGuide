@@ -32,7 +32,7 @@ struct Mobile: Codable {
 
 struct mobileImage: Codable{
     let mobileId: Int
-    let url: String
+    var url: String
     let id: Int
     
     private enum CodingKeys: String, CodingKey {
