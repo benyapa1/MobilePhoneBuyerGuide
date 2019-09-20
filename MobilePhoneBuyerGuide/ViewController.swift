@@ -39,22 +39,43 @@ class ViewController: UIViewController {
         alert = UIAlertController(title: "Alert", message: "Alert with more than 2 buttons", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Price Low to high", style: .default, handler: { (_) in
-            self.mobilesListShow.sort(by: { (mobile1, mobile2) -> Bool in
+            self.mobileList.sort(by: { (mobile1, mobile2) -> Bool in
                 return mobile1.price < mobile2.price
             })
+            if self.isHidden {
+                self.mobilesListShow = self.mobileList.filter { (item) -> Bool in
+                    return item.isFav
+                }
+            } else {
+                self.mobilesListShow = self.mobileList
+            }
             self.tableView.reloadData()
         }))
         
         alert.addAction(UIAlertAction(title: "Price high to low", style: .default, handler: { (_) in
-            self.mobilesListShow.sort(by: { (mobile1, mobile2) -> Bool in
+            self.mobileList.sort(by: { (mobile1, mobile2) -> Bool in
                 return mobile1.price > mobile2.price
             })
+            if self.isHidden {
+                self.mobilesListShow = self.mobileList.filter { (item) -> Bool in
+                    return item.isFav
+                }
+            } else {
+                self.mobilesListShow = self.mobileList
+            }
             self.tableView.reloadData()
         }))
         alert.addAction(UIAlertAction(title: "Rating", style: .default, handler: { (_) in
-            self.mobilesListShow.sort(by: { (mobile1, mobile2) -> Bool in
+            self.mobileList.sort(by: { (mobile1, mobile2) -> Bool in
                 return mobile1.rating > mobile2.rating
             })
+            if self.isHidden {
+                self.mobilesListShow = self.mobileList.filter { (item) -> Bool in
+                    return item.isFav
+                }
+            } else {
+                self.mobilesListShow = self.mobileList
+            }
             self.tableView.reloadData()
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
