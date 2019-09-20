@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     private var mobileList: [Mobile] = []
     private var mobilesListShow: [Mobile] = []
-    private var isHidden: Bool = false
+    private var isHidden: Bool = false //favourite button should be hidden
     @IBOutlet weak var allButton: UIButton!
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -33,6 +33,17 @@ class ViewController: UIViewController {
             segue.identifier == "showDetail",
             let viewController =  segue.destination as? MobileDetailViewController{
             viewController.item = item
+        }
+    }
+    
+    func getAPI() {
+        APIManager().getListFromAPI(){
+            [weak self] (mobiles) in
+            self?.mobileList.append(contentsOf: mobiles)
+            self?.mobilesListShow = self?.mobileList ?? []
+            DispatchQueue.main.sync {
+                self?.tableView.reloadData()
+            }
         }
     }
     
@@ -81,17 +92,6 @@ class ViewController: UIViewController {
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         return alert
-    }
-    
-    func getAPI() {
-        APIManager().getListFromAPI(){
-            [weak self] (mobiles) in
-            self?.mobileList.append(contentsOf: mobiles)
-            self?.mobilesListShow = self?.mobileList ?? []
-            DispatchQueue.main.sync {
-                self?.tableView.reloadData()
-            }
-        }
     }
     
     @IBAction func didClickAllButton(_ sender: Any) {
@@ -153,6 +153,7 @@ extension ViewController: UITableViewDelegate{
         self.performSegue(withIdentifier: "showDetail", sender: mobilesListShow[indexPath.row])
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        //if this view is favourite page, table view can delete
         return isHidden
     }
     

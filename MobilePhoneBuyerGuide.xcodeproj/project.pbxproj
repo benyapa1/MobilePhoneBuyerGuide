@@ -16,7 +16,7 @@
 		501C60AA2330937F00F02430 /* MobilePhoneBuyerGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60A92330937F00F02430 /* MobilePhoneBuyerGuideTests.swift */; };
 		501C60B52330937F00F02430 /* MobilePhoneBuyerGuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60B42330937F00F02430 /* MobilePhoneBuyerGuideUITests.swift */; };
 		501C60E42330C94200F02430 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60E32330C94200F02430 /* APIManager.swift */; };
-		501C60E62330CA8200F02430 /* MobileDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60E52330CA8200F02430 /* MobileDetail.swift */; };
+		501C60E62330CA8200F02430 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60E52330CA8200F02430 /* Model.swift */; };
 		501C60EE2331E21900F02430 /* MobileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60ED2331E21900F02430 /* MobileDetailViewController.swift */; };
 		501C60F1233206F900F02430 /* MobileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60EF233206F900F02430 /* MobileTableViewCell.swift */; };
 		501C60F2233206F900F02430 /* MobileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 501C60F0233206F900F02430 /* MobileTableViewCell.xib */; };
@@ -62,7 +62,7 @@
 		501C60B42330937F00F02430 /* MobilePhoneBuyerGuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhoneBuyerGuideUITests.swift; sourceTree = "<group>"; };
 		501C60B62330937F00F02430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		501C60E32330C94200F02430 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		501C60E52330CA8200F02430 /* MobileDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetail.swift; sourceTree = "<group>"; };
+		501C60E52330CA8200F02430 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		501C60ED2331E21900F02430 /* MobileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailViewController.swift; sourceTree = "<group>"; };
 		501C60EF233206F900F02430 /* MobileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileTableViewCell.swift; sourceTree = "<group>"; };
 		501C60F0233206F900F02430 /* MobileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MobileTableViewCell.xib; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				501C60942330937D00F02430 /* AppDelegate.swift */,
-				501C60E52330CA8200F02430 /* MobileDetail.swift */,
+				501C60E52330CA8200F02430 /* Model.swift */,
 				501C60E32330C94200F02430 /* APIManager.swift */,
 				501C60962330937D00F02430 /* ViewController.swift */,
 				501C60ED2331E21900F02430 /* MobileDetailViewController.swift */,
@@ -418,7 +418,7 @@
 				501C60F1233206F900F02430 /* MobileTableViewCell.swift in Sources */,
 				501C60EE2331E21900F02430 /* MobileDetailViewController.swift in Sources */,
 				501C60972330937D00F02430 /* ViewController.swift in Sources */,
-				501C60E62330CA8200F02430 /* MobileDetail.swift in Sources */,
+				501C60E62330CA8200F02430 /* Model.swift in Sources */,
 				501C60952330937D00F02430 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
