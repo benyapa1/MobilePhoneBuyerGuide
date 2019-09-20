@@ -30,7 +30,7 @@ struct Mobile: Codable {
     }
 }
 
-struct mobileImage: Codable{
+struct MobileImage: Codable {
     let mobileId: Int
     var url: String
     let id: Int

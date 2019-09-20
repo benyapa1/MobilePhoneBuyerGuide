@@ -17,7 +17,7 @@ class MobileDetailViewController: UIViewController {
     
     
     var item: Mobile?
-    private var mobileImages: [mobileImage] = []
+    private var mobileImages: [MobileImage] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,16 +37,15 @@ class MobileDetailViewController: UIViewController {
         guard let item = item else { return }
         APIManager().getImageFromApi(mobileId: item.id) {
             [weak self] (mobileImages) in
-            self?.mobileImages = mobileImages.map({ (image) -> mobileImage in
+            self?.mobileImages = mobileImages.map({ (image) -> MobileImage in
                 if (image.url.starts(with: "https://")){
                     return image
                 }else {
                     if let index = image.url.firstIndex(of: "w") , image.url.contains("www."){
                         let url = image.url.suffix(from: index)
-                        return mobileImage(mobileId: image.mobileId,
+                        return MobileImage(mobileId: image.mobileId,
                                            url: "https://" + String(url),
                                     id: image.id)
-                        
                     }
                     return image
                 }

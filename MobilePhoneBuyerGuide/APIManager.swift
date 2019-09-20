@@ -33,7 +33,7 @@ class APIManager {
         }
     }
     
-    func getImageFromApi(mobileId: Int, completion: @escaping ([mobileImage]) -> Void) {
+    func getImageFromApi(mobileId: Int, completion: @escaping ([MobileImage]) -> Void) {
         let urlGetListString: String = "https://scb-test-mobile.herokuapp.com/api/mobiles/\(mobileId)/images/"
         if let url = URL(string: urlGetListString) {
             var request = URLRequest(url: url)
@@ -44,7 +44,7 @@ class APIManager {
                 } else if let data = data, let response = response as? HTTPURLResponse {
                     if response.statusCode == 200 {
                         do {
-                            let image = try JSONDecoder().decode([mobileImage].self, from: data)
+                            let image = try JSONDecoder().decode([MobileImage].self, from: data)
                             completion(image)
                             
                         } catch {
