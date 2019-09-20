@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		500DD14F233390C400E05DA5 /* MobileDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DD14E233390C400E05DA5 /* MobileDetailCollectionViewCell.swift */; };
 		501C60952330937D00F02430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60942330937D00F02430 /* AppDelegate.swift */; };
 		501C60972330937D00F02430 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60962330937D00F02430 /* ViewController.swift */; };
 		501C609A2330937D00F02430 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 501C60982330937D00F02430 /* Main.storyboard */; };
@@ -14,21 +15,16 @@
 		501C609F2330937F00F02430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 501C609D2330937F00F02430 /* LaunchScreen.storyboard */; };
 		501C60AA2330937F00F02430 /* MobilePhoneBuyerGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60A92330937F00F02430 /* MobilePhoneBuyerGuideTests.swift */; };
 		501C60B52330937F00F02430 /* MobilePhoneBuyerGuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60B42330937F00F02430 /* MobilePhoneBuyerGuideUITests.swift */; };
-		501C60CA2330A04C00F02430 /* AllListScreenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60C22330A04C00F02430 /* AllListScreenStore.swift */; };
-		501C60CB2330A04C00F02430 /* AllListScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60C32330A04C00F02430 /* AllListScreenPresenter.swift */; };
-		501C60CC2330A04C00F02430 /* AllListScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60C42330A04C00F02430 /* AllListScreenWorker.swift */; };
-		501C60CD2330A04C00F02430 /* AllListScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60C52330A04C00F02430 /* AllListScreenRouter.swift */; };
-		501C60CE2330A04C00F02430 /* AllListScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60C62330A04C00F02430 /* AllListScreenModels.swift */; };
-		501C60CF2330A04C00F02430 /* AllListScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60C72330A04C00F02430 /* AllListScreenViewController.swift */; };
-		501C60D02330A04C00F02430 /* AllListScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60C82330A04C00F02430 /* AllListScreenInteractor.swift */; };
-		501C60D12330A04C00F02430 /* AllListScreenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60C92330A04C00F02430 /* AllListScreenEntity.swift */; };
 		501C60E42330C94200F02430 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60E32330C94200F02430 /* APIManager.swift */; };
-		501C60E62330CA8200F02430 /* mobileDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60E52330CA8200F02430 /* mobileDetail.swift */; };
+		501C60E62330CA8200F02430 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60E52330CA8200F02430 /* Model.swift */; };
 		501C60EE2331E21900F02430 /* MobileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60ED2331E21900F02430 /* MobileDetailViewController.swift */; };
 		501C60F1233206F900F02430 /* MobileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60EF233206F900F02430 /* MobileTableViewCell.swift */; };
 		501C60F2233206F900F02430 /* MobileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 501C60F0233206F900F02430 /* MobileTableViewCell.xib */; };
 		501C60F423320A3B00F02430 /* starUnselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 501C60F323320A3B00F02430 /* starUnselect.png */; };
 		501C60F623320A6B00F02430 /* starSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 501C60F523320A6B00F02430 /* starSelect.png */; };
+		594644D74714DDE755316BC2 /* Pods_MobilePhoneBuyerGuideUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D99223EC0A32D862140876 /* Pods_MobilePhoneBuyerGuideUITests.framework */; };
+		5F81B04DC12A86A15E2F6482 /* Pods_MobilePhoneBuyerGuideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820DFA0A919F04CF7D5090FE /* Pods_MobilePhoneBuyerGuideTests.framework */; };
+		9C38F7C367AD6077565AA1E7 /* Pods_MobilePhoneBuyerGuide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E5F938259BB7B314182252 /* Pods_MobilePhoneBuyerGuide.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		14B953CD23A86B10632A7059 /* Pods-MobilePhoneBuyerGuideUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePhoneBuyerGuideUITests.debug.xcconfig"; path = "Target Support Files/Pods-MobilePhoneBuyerGuideUITests/Pods-MobilePhoneBuyerGuideUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		31D99223EC0A32D862140876 /* Pods_MobilePhoneBuyerGuideUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobilePhoneBuyerGuideUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		500DD14E233390C400E05DA5 /* MobileDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		501C60912330937D00F02430 /* MobilePhoneBuyerGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobilePhoneBuyerGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		501C60942330937D00F02430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		501C60962330937D00F02430 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,21 +61,20 @@
 		501C60B02330937F00F02430 /* MobilePhoneBuyerGuideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobilePhoneBuyerGuideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		501C60B42330937F00F02430 /* MobilePhoneBuyerGuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhoneBuyerGuideUITests.swift; sourceTree = "<group>"; };
 		501C60B62330937F00F02430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		501C60C22330A04C00F02430 /* AllListScreenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListScreenStore.swift; sourceTree = "<group>"; };
-		501C60C32330A04C00F02430 /* AllListScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListScreenPresenter.swift; sourceTree = "<group>"; };
-		501C60C42330A04C00F02430 /* AllListScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListScreenWorker.swift; sourceTree = "<group>"; };
-		501C60C52330A04C00F02430 /* AllListScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListScreenRouter.swift; sourceTree = "<group>"; };
-		501C60C62330A04C00F02430 /* AllListScreenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListScreenModels.swift; sourceTree = "<group>"; };
-		501C60C72330A04C00F02430 /* AllListScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListScreenViewController.swift; sourceTree = "<group>"; };
-		501C60C82330A04C00F02430 /* AllListScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListScreenInteractor.swift; sourceTree = "<group>"; };
-		501C60C92330A04C00F02430 /* AllListScreenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListScreenEntity.swift; sourceTree = "<group>"; };
 		501C60E32330C94200F02430 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		501C60E52330CA8200F02430 /* mobileDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mobileDetail.swift; sourceTree = "<group>"; };
+		501C60E52330CA8200F02430 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		501C60ED2331E21900F02430 /* MobileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailViewController.swift; sourceTree = "<group>"; };
 		501C60EF233206F900F02430 /* MobileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileTableViewCell.swift; sourceTree = "<group>"; };
 		501C60F0233206F900F02430 /* MobileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MobileTableViewCell.xib; sourceTree = "<group>"; };
 		501C60F323320A3B00F02430 /* starUnselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = starUnselect.png; path = ../../../Downloads/starUnselect.png; sourceTree = "<group>"; };
 		501C60F523320A6B00F02430 /* starSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = starSelect.png; path = ../../../Downloads/starSelect.png; sourceTree = "<group>"; };
+		5326E8473DB3B4BDEB3F0D79 /* Pods-MobilePhoneBuyerGuideUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePhoneBuyerGuideUITests.release.xcconfig"; path = "Target Support Files/Pods-MobilePhoneBuyerGuideUITests/Pods-MobilePhoneBuyerGuideUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6C768840452B59C39AC2A9C0 /* Pods-MobilePhoneBuyerGuideTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePhoneBuyerGuideTests.debug.xcconfig"; path = "Target Support Files/Pods-MobilePhoneBuyerGuideTests/Pods-MobilePhoneBuyerGuideTests.debug.xcconfig"; sourceTree = "<group>"; };
+		820DFA0A919F04CF7D5090FE /* Pods_MobilePhoneBuyerGuideTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobilePhoneBuyerGuideTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE496A973F90EF639583ABAD /* Pods-MobilePhoneBuyerGuide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePhoneBuyerGuide.debug.xcconfig"; path = "Target Support Files/Pods-MobilePhoneBuyerGuide/Pods-MobilePhoneBuyerGuide.debug.xcconfig"; sourceTree = "<group>"; };
+		D85BEA95B07AD383745F8181 /* Pods-MobilePhoneBuyerGuide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePhoneBuyerGuide.release.xcconfig"; path = "Target Support Files/Pods-MobilePhoneBuyerGuide/Pods-MobilePhoneBuyerGuide.release.xcconfig"; sourceTree = "<group>"; };
+		D90943712E0CB3B16A658874 /* Pods-MobilePhoneBuyerGuideTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePhoneBuyerGuideTests.release.xcconfig"; path = "Target Support Files/Pods-MobilePhoneBuyerGuideTests/Pods-MobilePhoneBuyerGuideTests.release.xcconfig"; sourceTree = "<group>"; };
+		E8E5F938259BB7B314182252 /* Pods_MobilePhoneBuyerGuide.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobilePhoneBuyerGuide.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C38F7C367AD6077565AA1E7 /* Pods_MobilePhoneBuyerGuide.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F81B04DC12A86A15E2F6482 /* Pods_MobilePhoneBuyerGuideTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				594644D74714DDE755316BC2 /* Pods_MobilePhoneBuyerGuideUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +112,8 @@
 				501C60A82330937F00F02430 /* MobilePhoneBuyerGuideTests */,
 				501C60B32330937F00F02430 /* MobilePhoneBuyerGuideUITests */,
 				501C60922330937D00F02430 /* Products */,
+				AAE4FE549094DE0E3CAC43E7 /* Pods */,
+				C7CE3EBDBA0A7CFFE3328308 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,13 +130,13 @@
 		501C60932330937D00F02430 /* MobilePhoneBuyerGuide */ = {
 			isa = PBXGroup;
 			children = (
-				501C60D22330A05300F02430 /* AllListScreen */,
 				501C60942330937D00F02430 /* AppDelegate.swift */,
-				501C60E52330CA8200F02430 /* mobileDetail.swift */,
+				501C60E52330CA8200F02430 /* Model.swift */,
 				501C60E32330C94200F02430 /* APIManager.swift */,
 				501C60962330937D00F02430 /* ViewController.swift */,
 				501C60ED2331E21900F02430 /* MobileDetailViewController.swift */,
 				501C60982330937D00F02430 /* Main.storyboard */,
+				500DD14E233390C400E05DA5 /* MobileDetailCollectionViewCell.swift */,
 				501C60EF233206F900F02430 /* MobileTableViewCell.swift */,
 				501C60F0233206F900F02430 /* MobileTableViewCell.xib */,
 				501C609B2330937F00F02430 /* Assets.xcassets */,
@@ -163,19 +166,27 @@
 			path = MobilePhoneBuyerGuideUITests;
 			sourceTree = "<group>";
 		};
-		501C60D22330A05300F02430 /* AllListScreen */ = {
+		AAE4FE549094DE0E3CAC43E7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				501C60C22330A04C00F02430 /* AllListScreenStore.swift */,
-				501C60C32330A04C00F02430 /* AllListScreenPresenter.swift */,
-				501C60C42330A04C00F02430 /* AllListScreenWorker.swift */,
-				501C60C52330A04C00F02430 /* AllListScreenRouter.swift */,
-				501C60C62330A04C00F02430 /* AllListScreenModels.swift */,
-				501C60C72330A04C00F02430 /* AllListScreenViewController.swift */,
-				501C60C82330A04C00F02430 /* AllListScreenInteractor.swift */,
-				501C60C92330A04C00F02430 /* AllListScreenEntity.swift */,
+				CE496A973F90EF639583ABAD /* Pods-MobilePhoneBuyerGuide.debug.xcconfig */,
+				D85BEA95B07AD383745F8181 /* Pods-MobilePhoneBuyerGuide.release.xcconfig */,
+				6C768840452B59C39AC2A9C0 /* Pods-MobilePhoneBuyerGuideTests.debug.xcconfig */,
+				D90943712E0CB3B16A658874 /* Pods-MobilePhoneBuyerGuideTests.release.xcconfig */,
+				14B953CD23A86B10632A7059 /* Pods-MobilePhoneBuyerGuideUITests.debug.xcconfig */,
+				5326E8473DB3B4BDEB3F0D79 /* Pods-MobilePhoneBuyerGuideUITests.release.xcconfig */,
 			);
-			path = AllListScreen;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C7CE3EBDBA0A7CFFE3328308 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E8E5F938259BB7B314182252 /* Pods_MobilePhoneBuyerGuide.framework */,
+				820DFA0A919F04CF7D5090FE /* Pods_MobilePhoneBuyerGuideTests.framework */,
+				31D99223EC0A32D862140876 /* Pods_MobilePhoneBuyerGuideUITests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,9 +196,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 501C60B92330937F00F02430 /* Build configuration list for PBXNativeTarget "MobilePhoneBuyerGuide" */;
 			buildPhases = (
+				47574C6BFC18A6401D8F799C /* [CP] Check Pods Manifest.lock */,
 				501C608D2330937D00F02430 /* Sources */,
 				501C608E2330937D00F02430 /* Frameworks */,
 				501C608F2330937D00F02430 /* Resources */,
+				50B528020BC3FDAB11BE5C4D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,6 +215,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 501C60BC2330937F00F02430 /* Build configuration list for PBXNativeTarget "MobilePhoneBuyerGuideTests" */;
 			buildPhases = (
+				BC23AE3F595DA91F780C2491 /* [CP] Check Pods Manifest.lock */,
 				501C60A12330937F00F02430 /* Sources */,
 				501C60A22330937F00F02430 /* Frameworks */,
 				501C60A32330937F00F02430 /* Resources */,
@@ -220,6 +234,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 501C60BF2330937F00F02430 /* Build configuration list for PBXNativeTarget "MobilePhoneBuyerGuideUITests" */;
 			buildPhases = (
+				B18DC518E7AECC39858C8F47 /* [CP] Check Pods Manifest.lock */,
 				501C60AC2330937F00F02430 /* Sources */,
 				501C60AD2330937F00F02430 /* Frameworks */,
 				501C60AE2330937F00F02430 /* Resources */,
@@ -307,24 +322,103 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		47574C6BFC18A6401D8F799C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobilePhoneBuyerGuide-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		50B528020BC3FDAB11BE5C4D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobilePhoneBuyerGuide/Pods-MobilePhoneBuyerGuide-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobilePhoneBuyerGuide/Pods-MobilePhoneBuyerGuide-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MobilePhoneBuyerGuide/Pods-MobilePhoneBuyerGuide-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B18DC518E7AECC39858C8F47 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobilePhoneBuyerGuideUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BC23AE3F595DA91F780C2491 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MobilePhoneBuyerGuideTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		501C608D2330937D00F02430 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				500DD14F233390C400E05DA5 /* MobileDetailCollectionViewCell.swift in Sources */,
 				501C60E42330C94200F02430 /* APIManager.swift in Sources */,
-				501C60D12330A04C00F02430 /* AllListScreenEntity.swift in Sources */,
 				501C60F1233206F900F02430 /* MobileTableViewCell.swift in Sources */,
-				501C60CF2330A04C00F02430 /* AllListScreenViewController.swift in Sources */,
-				501C60CB2330A04C00F02430 /* AllListScreenPresenter.swift in Sources */,
 				501C60EE2331E21900F02430 /* MobileDetailViewController.swift in Sources */,
 				501C60972330937D00F02430 /* ViewController.swift in Sources */,
-				501C60E62330CA8200F02430 /* mobileDetail.swift in Sources */,
-				501C60CD2330A04C00F02430 /* AllListScreenRouter.swift in Sources */,
-				501C60CA2330A04C00F02430 /* AllListScreenStore.swift in Sources */,
-				501C60D02330A04C00F02430 /* AllListScreenInteractor.swift in Sources */,
-				501C60CC2330A04C00F02430 /* AllListScreenWorker.swift in Sources */,
-				501C60CE2330A04C00F02430 /* AllListScreenModels.swift in Sources */,
+				501C60E62330CA8200F02430 /* Model.swift in Sources */,
 				501C60952330937D00F02430 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +592,7 @@
 		};
 		501C60BA2330937F00F02430 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE496A973F90EF639583ABAD /* Pods-MobilePhoneBuyerGuide.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -515,6 +610,7 @@
 		};
 		501C60BB2330937F00F02430 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D85BEA95B07AD383745F8181 /* Pods-MobilePhoneBuyerGuide.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -532,6 +628,7 @@
 		};
 		501C60BD2330937F00F02430 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C768840452B59C39AC2A9C0 /* Pods-MobilePhoneBuyerGuideTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -552,6 +649,7 @@
 		};
 		501C60BE2330937F00F02430 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D90943712E0CB3B16A658874 /* Pods-MobilePhoneBuyerGuideTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -572,6 +670,7 @@
 		};
 		501C60C02330937F00F02430 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 14B953CD23A86B10632A7059 /* Pods-MobilePhoneBuyerGuideUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -591,6 +690,7 @@
 		};
 		501C60C12330937F00F02430 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5326E8473DB3B4BDEB3F0D79 /* Pods-MobilePhoneBuyerGuideUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

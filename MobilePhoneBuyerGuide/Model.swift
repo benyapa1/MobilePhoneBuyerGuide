@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct mobileDetail: Codable {
+struct Mobile: Codable {
     
     let thumbImageURL: String
     let brand: String
@@ -17,16 +17,28 @@ struct mobileDetail: Codable {
     let name: String
     let rating: Float
     let id: Int
-}
-
-struct mobileItem {
-    let mobileDetail: mobileDetail
     var isFav: Bool = false
+    
+    private enum CodingKeys: String, CodingKey {
+        case thumbImageURL
+        case brand
+        case price
+        case description
+        case name
+        case rating
+        case id
+    }
 }
 
-struct mobileImage: Codable{
+struct MobileImage: Codable {
     let mobileId: Int
-    let url: String
+    var url: String
     let id: Int
+    
+    private enum CodingKeys: String, CodingKey {
+        case mobileId = "mobile_id"
+        case url
+        case id
+    }
 }
 
