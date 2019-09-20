@@ -27,7 +27,6 @@ class MobileTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     @IBAction func clickFav(_ sender: Any) {
@@ -37,7 +36,6 @@ class MobileTableViewCell: UITableViewCell {
             favButton.isSelected = true
         }
         delegate?.doClickFav(cell: self, isFav: favButton.isSelected)
-        
     }
     
     func hideFavButton(isHidden: Bool) {

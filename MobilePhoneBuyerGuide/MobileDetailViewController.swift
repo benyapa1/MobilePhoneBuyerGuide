@@ -43,7 +43,6 @@ class MobileDetailViewController: UIViewController {
                 }else {
                     if let index = image.url.firstIndex(of: "w") , image.url.contains("www."){
                         let url = image.url.suffix(from: index)
-//                        var urlNew = "https://\(String(url))"
                         return mobileImage(mobileId: image.mobileId,
                                            url: "https://" + String(url),
                                     id: image.id)
@@ -52,7 +51,6 @@ class MobileDetailViewController: UIViewController {
                     return image
                 }
             })
-//            append(contentsOf: mobileImages)
             DispatchQueue.main.sync {
                 self?.collectionView.reloadData()
             }
