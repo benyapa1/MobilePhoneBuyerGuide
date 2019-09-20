@@ -47,8 +47,8 @@ class MobileTableViewCell: UITableViewCell {
     func setViewByItem(mobile: Mobile, isHidden: Bool) {
         descriptionLabel.text = mobile.description
         nameLabel.text = mobile.name
-        priceLabel.text = "Price: $\(mobile.price)"
-        ratingLabel.text = "Rating: \(mobile.rating)"
+        priceLabel.text = "Price: $\(String(format: "%.2f",mobile.price))"
+        ratingLabel.text = "Rating: \(String(format: "%.1f",mobile.rating))"
         favButton.isSelected = mobile.isFav
         mobileImageView.kf.setImage(with: URL(string: mobile.thumbImageURL))
         hideFavButton(isHidden: isHidden)

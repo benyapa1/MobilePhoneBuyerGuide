@@ -12,6 +12,9 @@ class MobileDetailViewController: UIViewController {
     
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var ratingLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    
     
     var item: Mobile?
     private var mobileImages: [mobileImage] = []
@@ -26,6 +29,8 @@ class MobileDetailViewController: UIViewController {
         guard let item = item else { return }
         self.title = item.name
         detailTextView.text = item.description
+        ratingLabel.text = "Rating: \(String(format: "%.1f",item.rating))"
+        priceLabel.text = "Price: $\(String(format: "%.2f",item.price))"
     }
     
     func getAPI() {

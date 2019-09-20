@@ -174,15 +174,43 @@
                                     <outlet property="delegate" destination="yII-FB-5iQ" id="6Mf-ht-J9y"/>
                                 </connections>
                             </collectionView>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lgV-pF-Amp">
+                                <rect key="frame" x="0.0" y="88" width="414" height="35"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price: $400" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KEG-1V-KRM">
+                                        <rect key="frame" x="316" y="7" width="90" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating: 4.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rgF-YF-04K">
+                                        <rect key="frame" x="8" y="7" width="82.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="KEG-1V-KRM" firstAttribute="centerY" secondItem="lgV-pF-Amp" secondAttribute="centerY" id="9ys-gr-b1O"/>
+                                    <constraint firstAttribute="height" constant="35" id="JA7-rw-1lW"/>
+                                    <constraint firstItem="rgF-YF-04K" firstAttribute="centerY" secondItem="lgV-pF-Amp" secondAttribute="centerY" id="hFl-s5-rA3"/>
+                                    <constraint firstAttribute="trailing" secondItem="KEG-1V-KRM" secondAttribute="trailing" constant="8" id="l4y-rj-vWI"/>
+                                    <constraint firstItem="rgF-YF-04K" firstAttribute="leading" secondItem="lgV-pF-Amp" secondAttribute="leading" constant="8" id="wto-h9-8Dj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Uey-Q1-vvK" firstAttribute="leading" secondItem="K1K-3n-XV0" secondAttribute="leading" id="6dG-aj-iFV"/>
                             <constraint firstItem="Uey-Q1-vvK" firstAttribute="trailing" secondItem="K1K-3n-XV0" secondAttribute="trailing" id="AEd-yt-ssY"/>
+                            <constraint firstItem="lgV-pF-Amp" firstAttribute="top" secondItem="K1K-3n-XV0" secondAttribute="top" id="FL3-Xd-OOi"/>
                             <constraint firstItem="Uey-Q1-vvK" firstAttribute="top" secondItem="K1K-3n-XV0" secondAttribute="top" id="Hdo-XJ-alb"/>
+                            <constraint firstItem="lgV-pF-Amp" firstAttribute="trailing" secondItem="K1K-3n-XV0" secondAttribute="trailing" id="O7f-Rt-t1O"/>
                             <constraint firstItem="q1G-Cn-6oa" firstAttribute="bottom" secondItem="K1K-3n-XV0" secondAttribute="bottom" id="Oe7-PL-SnC"/>
                             <constraint firstItem="q1G-Cn-6oa" firstAttribute="top" secondItem="Uey-Q1-vvK" secondAttribute="bottom" constant="8" id="VS1-EQ-QlS"/>
                             <constraint firstItem="q1G-Cn-6oa" firstAttribute="leading" secondItem="K1K-3n-XV0" secondAttribute="leading" constant="8" id="dVU-ha-mdm"/>
+                            <constraint firstItem="lgV-pF-Amp" firstAttribute="leading" secondItem="K1K-3n-XV0" secondAttribute="leading" id="iAo-N1-U4a"/>
                             <constraint firstItem="K1K-3n-XV0" firstAttribute="trailing" secondItem="q1G-Cn-6oa" secondAttribute="trailing" constant="8" id="lEZ-El-7yf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K1K-3n-XV0"/>
@@ -190,6 +218,8 @@
                     <connections>
                         <outlet property="collectionView" destination="Uey-Q1-vvK" id="iQ7-gQ-9nn"/>
                         <outlet property="detailTextView" destination="q1G-Cn-6oa" id="QHP-ho-Tbx"/>
+                        <outlet property="priceLabel" destination="KEG-1V-KRM" id="JlI-AP-Rhi"/>
+                        <outlet property="ratingLabel" destination="rgF-YF-04K" id="jqW-h8-7w5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiG-Mc-VaS" userLabel="First Responder" sceneMemberID="firstResponder"/>

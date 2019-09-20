@@ -57,7 +57,7 @@ class ViewController: UIViewController {
             })
             self.tableView.reloadData()
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in}))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         return alert
     }
     
