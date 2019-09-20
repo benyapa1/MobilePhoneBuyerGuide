@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     private var mobileList: [Mobile] = []
     private var mobilesListShow: [Mobile] = []
-    private var state: Bool = true //state true = All, false = Favourite
+    private var isHidden: Bool = false
     @IBOutlet weak var allButton: UIButton!
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
@@ -73,7 +73,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didClickAllButton(_ sender: Any) {
-        self.state = true
+        self.isHidden = false
         allButton.isSelected = true
         favButton.isSelected = false
         self.mobilesListShow = mobileList
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didClickFavButton(_ sender: Any) {
-        self.state = false
+        self.isHidden = true
         favButton.isSelected = true
         allButton.isSelected = false
         self.mobilesListShow = mobileList.filter { (item) -> Bool in
@@ -120,7 +120,7 @@ extension ViewController: UITableViewDataSource{
             return UITableViewCell()
         }
         let item = mobilesListShow[indexPath.row]
-        cell.setViewByItem(mobile: item)
+        cell.setViewByItem(mobile: item, isHidden: isHidden)
         cell.delegate = self
         return cell
     }
@@ -131,7 +131,7 @@ extension ViewController: UITableViewDelegate{
         self.performSegue(withIdentifier: "showDetail", sender: mobilesListShow[indexPath.row])
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return !state
+        return isHidden
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

@@ -44,13 +44,14 @@ class MobileTableViewCell: UITableViewCell {
         favButton.isHidden = isHidden
     }
     
-    func setViewByItem(mobile: Mobile) {
+    func setViewByItem(mobile: Mobile, isHidden: Bool) {
         descriptionLabel.text = mobile.description
         nameLabel.text = mobile.name
         priceLabel.text = "Price: $\(mobile.price)"
         ratingLabel.text = "Rating: \(mobile.rating)"
         favButton.isSelected = mobile.isFav
         mobileImageView.kf.setImage(with: URL(string: mobile.thumbImageURL))
+        hideFavButton(isHidden: isHidden)
     }
     
 }
