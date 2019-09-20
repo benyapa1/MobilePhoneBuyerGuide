@@ -27,7 +27,6 @@ class MobileTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     @IBAction func clickFav(_ sender: Any) {
@@ -37,20 +36,20 @@ class MobileTableViewCell: UITableViewCell {
             favButton.isSelected = true
         }
         delegate?.doClickFav(cell: self, isFav: favButton.isSelected)
-        
     }
     
     func hideFavButton(isHidden: Bool) {
         favButton.isHidden = isHidden
     }
     
-    func setViewByItem(mobileItem: mobileItem) {
-        descriptionLabel.text = mobileItem.mobileDetail.description
-        nameLabel.text = mobileItem.mobileDetail.name
-        priceLabel.text = "Price: $\(mobileItem.mobileDetail.price)"
-        ratingLabel.text = "Rating: \(mobileItem.mobileDetail.rating)"
-
-        mobileImageView.kf.setImage(with: URL(string: mobileItem.mobileDetail.thumbImageURL))
+    func setViewByItem(mobile: Mobile, isHidden: Bool) {
+        descriptionLabel.text = mobile.description
+        nameLabel.text = mobile.name
+        priceLabel.text = "Price: $\(String(format: "%.2f",mobile.price))"
+        ratingLabel.text = "Rating: \(String(format: "%.1f",mobile.rating))"
+        favButton.isSelected = mobile.isFav
+        mobileImageView.kf.setImage(with: URL(string: mobile.thumbImageURL))
+        hideFavButton(isHidden: isHidden)
     }
     
 }

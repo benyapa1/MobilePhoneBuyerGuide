@@ -9,8 +9,7 @@
 import Foundation
 class APIManager {
     
-    
-    func getListFromAPI(completion: @escaping ([mobileDetail]) -> Void){
+    func getListFromAPI(completion: @escaping ([Mobile]) -> Void){
         let urlGetListString: String = "https://scb-test-mobile.herokuapp.com/api/mobiles/"
         if let url = URL(string: urlGetListString) {
             var request = URLRequest(url: url)
@@ -21,8 +20,7 @@ class APIManager {
                 } else if let data = data, let response = response as? HTTPURLResponse {
                     if response.statusCode == 200 {
                         do {
-                            //                        let beer = try JSONDecoder().decode(Beer.self, from: data)
-                            let mobile = try JSONDecoder().decode([mobileDetail].self, from: data)
+                            let mobile = try JSONDecoder().decode([Mobile].self, from: data)
                             completion(mobile)
                             
                         } catch {

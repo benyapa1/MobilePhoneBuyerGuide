@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		500DD14F233390C400E05DA5 /* MobileDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DD14E233390C400E05DA5 /* MobileDetailCollectionViewCell.swift */; };
 		501C60952330937D00F02430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60942330937D00F02430 /* AppDelegate.swift */; };
 		501C60972330937D00F02430 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60962330937D00F02430 /* ViewController.swift */; };
 		501C609A2330937D00F02430 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 501C60982330937D00F02430 /* Main.storyboard */; };
@@ -14,16 +15,8 @@
 		501C609F2330937F00F02430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 501C609D2330937F00F02430 /* LaunchScreen.storyboard */; };
 		501C60AA2330937F00F02430 /* MobilePhoneBuyerGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60A92330937F00F02430 /* MobilePhoneBuyerGuideTests.swift */; };
 		501C60B52330937F00F02430 /* MobilePhoneBuyerGuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60B42330937F00F02430 /* MobilePhoneBuyerGuideUITests.swift */; };
-		501C60CA2330A04C00F02430 /* AllListScreenStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60C22330A04C00F02430 /* AllListScreenStore.swift */; };
-		501C60CB2330A04C00F02430 /* AllListScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60C32330A04C00F02430 /* AllListScreenPresenter.swift */; };
-		501C60CC2330A04C00F02430 /* AllListScreenWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60C42330A04C00F02430 /* AllListScreenWorker.swift */; };
-		501C60CD2330A04C00F02430 /* AllListScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60C52330A04C00F02430 /* AllListScreenRouter.swift */; };
-		501C60CE2330A04C00F02430 /* AllListScreenModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60C62330A04C00F02430 /* AllListScreenModels.swift */; };
-		501C60CF2330A04C00F02430 /* AllListScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60C72330A04C00F02430 /* AllListScreenViewController.swift */; };
-		501C60D02330A04C00F02430 /* AllListScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60C82330A04C00F02430 /* AllListScreenInteractor.swift */; };
-		501C60D12330A04C00F02430 /* AllListScreenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60C92330A04C00F02430 /* AllListScreenEntity.swift */; };
 		501C60E42330C94200F02430 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60E32330C94200F02430 /* APIManager.swift */; };
-		501C60E62330CA8200F02430 /* mobileDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60E52330CA8200F02430 /* mobileDetail.swift */; };
+		501C60E62330CA8200F02430 /* MobileDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60E52330CA8200F02430 /* MobileDetail.swift */; };
 		501C60EE2331E21900F02430 /* MobileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60ED2331E21900F02430 /* MobileDetailViewController.swift */; };
 		501C60F1233206F900F02430 /* MobileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60EF233206F900F02430 /* MobileTableViewCell.swift */; };
 		501C60F2233206F900F02430 /* MobileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 501C60F0233206F900F02430 /* MobileTableViewCell.xib */; };
@@ -54,6 +47,7 @@
 /* Begin PBXFileReference section */
 		14B953CD23A86B10632A7059 /* Pods-MobilePhoneBuyerGuideUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePhoneBuyerGuideUITests.debug.xcconfig"; path = "Target Support Files/Pods-MobilePhoneBuyerGuideUITests/Pods-MobilePhoneBuyerGuideUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		31D99223EC0A32D862140876 /* Pods_MobilePhoneBuyerGuideUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobilePhoneBuyerGuideUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		500DD14E233390C400E05DA5 /* MobileDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		501C60912330937D00F02430 /* MobilePhoneBuyerGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobilePhoneBuyerGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		501C60942330937D00F02430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		501C60962330937D00F02430 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -67,16 +61,8 @@
 		501C60B02330937F00F02430 /* MobilePhoneBuyerGuideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobilePhoneBuyerGuideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		501C60B42330937F00F02430 /* MobilePhoneBuyerGuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhoneBuyerGuideUITests.swift; sourceTree = "<group>"; };
 		501C60B62330937F00F02430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		501C60C22330A04C00F02430 /* AllListScreenStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListScreenStore.swift; sourceTree = "<group>"; };
-		501C60C32330A04C00F02430 /* AllListScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListScreenPresenter.swift; sourceTree = "<group>"; };
-		501C60C42330A04C00F02430 /* AllListScreenWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListScreenWorker.swift; sourceTree = "<group>"; };
-		501C60C52330A04C00F02430 /* AllListScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListScreenRouter.swift; sourceTree = "<group>"; };
-		501C60C62330A04C00F02430 /* AllListScreenModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListScreenModels.swift; sourceTree = "<group>"; };
-		501C60C72330A04C00F02430 /* AllListScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListScreenViewController.swift; sourceTree = "<group>"; };
-		501C60C82330A04C00F02430 /* AllListScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListScreenInteractor.swift; sourceTree = "<group>"; };
-		501C60C92330A04C00F02430 /* AllListScreenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllListScreenEntity.swift; sourceTree = "<group>"; };
 		501C60E32330C94200F02430 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		501C60E52330CA8200F02430 /* mobileDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mobileDetail.swift; sourceTree = "<group>"; };
+		501C60E52330CA8200F02430 /* MobileDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetail.swift; sourceTree = "<group>"; };
 		501C60ED2331E21900F02430 /* MobileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailViewController.swift; sourceTree = "<group>"; };
 		501C60EF233206F900F02430 /* MobileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileTableViewCell.swift; sourceTree = "<group>"; };
 		501C60F0233206F900F02430 /* MobileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MobileTableViewCell.xib; sourceTree = "<group>"; };
@@ -144,13 +130,13 @@
 		501C60932330937D00F02430 /* MobilePhoneBuyerGuide */ = {
 			isa = PBXGroup;
 			children = (
-				501C60D22330A05300F02430 /* AllListScreen */,
 				501C60942330937D00F02430 /* AppDelegate.swift */,
-				501C60E52330CA8200F02430 /* mobileDetail.swift */,
+				501C60E52330CA8200F02430 /* MobileDetail.swift */,
 				501C60E32330C94200F02430 /* APIManager.swift */,
 				501C60962330937D00F02430 /* ViewController.swift */,
 				501C60ED2331E21900F02430 /* MobileDetailViewController.swift */,
 				501C60982330937D00F02430 /* Main.storyboard */,
+				500DD14E233390C400E05DA5 /* MobileDetailCollectionViewCell.swift */,
 				501C60EF233206F900F02430 /* MobileTableViewCell.swift */,
 				501C60F0233206F900F02430 /* MobileTableViewCell.xib */,
 				501C609B2330937F00F02430 /* Assets.xcassets */,
@@ -180,21 +166,6 @@
 			path = MobilePhoneBuyerGuideUITests;
 			sourceTree = "<group>";
 		};
-		501C60D22330A05300F02430 /* AllListScreen */ = {
-			isa = PBXGroup;
-			children = (
-				501C60C22330A04C00F02430 /* AllListScreenStore.swift */,
-				501C60C32330A04C00F02430 /* AllListScreenPresenter.swift */,
-				501C60C42330A04C00F02430 /* AllListScreenWorker.swift */,
-				501C60C52330A04C00F02430 /* AllListScreenRouter.swift */,
-				501C60C62330A04C00F02430 /* AllListScreenModels.swift */,
-				501C60C72330A04C00F02430 /* AllListScreenViewController.swift */,
-				501C60C82330A04C00F02430 /* AllListScreenInteractor.swift */,
-				501C60C92330A04C00F02430 /* AllListScreenEntity.swift */,
-			);
-			path = AllListScreen;
-			sourceTree = "<group>";
-		};
 		AAE4FE549094DE0E3CAC43E7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,7 +176,6 @@
 				14B953CD23A86B10632A7059 /* Pods-MobilePhoneBuyerGuideUITests.debug.xcconfig */,
 				5326E8473DB3B4BDEB3F0D79 /* Pods-MobilePhoneBuyerGuideUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -443,19 +413,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				500DD14F233390C400E05DA5 /* MobileDetailCollectionViewCell.swift in Sources */,
 				501C60E42330C94200F02430 /* APIManager.swift in Sources */,
-				501C60D12330A04C00F02430 /* AllListScreenEntity.swift in Sources */,
 				501C60F1233206F900F02430 /* MobileTableViewCell.swift in Sources */,
-				501C60CF2330A04C00F02430 /* AllListScreenViewController.swift in Sources */,
-				501C60CB2330A04C00F02430 /* AllListScreenPresenter.swift in Sources */,
 				501C60EE2331E21900F02430 /* MobileDetailViewController.swift in Sources */,
 				501C60972330937D00F02430 /* ViewController.swift in Sources */,
-				501C60E62330CA8200F02430 /* mobileDetail.swift in Sources */,
-				501C60CD2330A04C00F02430 /* AllListScreenRouter.swift in Sources */,
-				501C60CA2330A04C00F02430 /* AllListScreenStore.swift in Sources */,
-				501C60D02330A04C00F02430 /* AllListScreenInteractor.swift in Sources */,
-				501C60CC2330A04C00F02430 /* AllListScreenWorker.swift in Sources */,
-				501C60CE2330A04C00F02430 /* AllListScreenModels.swift in Sources */,
+				501C60E62330CA8200F02430 /* MobileDetail.swift in Sources */,
 				501C60952330937D00F02430 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
