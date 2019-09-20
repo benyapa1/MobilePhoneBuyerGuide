@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var allButton: UIButton!
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    private var alert: UIAlertController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class ViewController: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: "MobileTableViewCellIdentifier")
         allButton.isSelected = true
         getAPI()
+        self.alert = createAlert()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -33,25 +35,30 @@ class ViewController: UIViewController {
         }
     }
     
-    func showAlert(){
-        let alert = UIAlertController(title: "Alert", message: "Alert with more than 2 buttons", preferredStyle: .alert)
+    func createAlert() -> UIAlertController {
+        alert = UIAlertController(title: "Alert", message: "Alert with more than 2 buttons", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Price Low to high", style: .default, handler: { (_) in
-            print("You've pressed Price Low to high")
+            self.mobilesListShow.sort(by: { (mobile1, mobile2) -> Bool in
+                return mobile1.price < mobile2.price
+            })
+            self.tableView.reloadData()
         }))
         
         alert.addAction(UIAlertAction(title: "Price high to low", style: .default, handler: { (_) in
-            print("You've pressed Price high to low")
+            self.mobilesListShow.sort(by: { (mobile1, mobile2) -> Bool in
+                return mobile1.price > mobile2.price
+            })
+            self.tableView.reloadData()
         }))
         alert.addAction(UIAlertAction(title: "Rating", style: .default, handler: { (_) in
-            print("You've pressed Rating")
+            self.mobilesListShow.sort(by: { (mobile1, mobile2) -> Bool in
+                return mobile1.rating > mobile2.rating
+            })
+            self.tableView.reloadData()
         }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in
-            print("You've pressed Cancel")
-        }))
-        
-        self.present(alert, animated: true, completion: nil)
-        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (_) in}))
+        return alert
     }
     
     func getAPI() {
@@ -84,7 +91,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func didClickSortButton(_ sender: Any){
-        showAlert()
+        self.present(alert, animated: true, completion: nil)
     }
     
     func searchShowItemInActualArray(indexRow: Int)  -> Int{
