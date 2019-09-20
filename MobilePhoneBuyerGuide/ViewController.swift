@@ -25,6 +25,7 @@ class ViewController: UIViewController {
         allButton.isSelected = true
         getAPI()
         self.alert = createAlert()
+        tableView.tableFooterView = UIView()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
