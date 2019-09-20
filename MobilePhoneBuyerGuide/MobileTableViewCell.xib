@@ -50,8 +50,8 @@
                             <constraint firstAttribute="width" constant="20" id="Pb2-o3-k0c"/>
                             <constraint firstAttribute="height" constant="20" id="nfS-2B-mad"/>
                         </constraints>
-                        <state key="normal" title="Button" image="starUnselect.png"/>
-                        <state key="selected" image="starSelect.png"/>
+                        <state key="normal" title="Button" image="starUnselect"/>
+                        <state key="selected" image="starSelect"/>
                         <connections>
                             <action selector="clickFav:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nSh-P6-ehF"/>
                         </connections>
@@ -94,7 +94,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="starSelect.png" width="43.115791320800781" height="43.115791320800781"/>
-        <image name="starUnselect.png" width="384" height="384"/>
+        <image name="starSelect" width="512" height="512"/>
+        <image name="starUnselect" width="512" height="512"/>
     </resources>
 </document>
