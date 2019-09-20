@@ -20,8 +20,6 @@
 		501C60EE2331E21900F02430 /* MobileDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60ED2331E21900F02430 /* MobileDetailViewController.swift */; };
 		501C60F1233206F900F02430 /* MobileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60EF233206F900F02430 /* MobileTableViewCell.swift */; };
 		501C60F2233206F900F02430 /* MobileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 501C60F0233206F900F02430 /* MobileTableViewCell.xib */; };
-		501C60F423320A3B00F02430 /* starUnselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 501C60F323320A3B00F02430 /* starUnselect.png */; };
-		501C60F623320A6B00F02430 /* starSelect.png in Resources */ = {isa = PBXBuildFile; fileRef = 501C60F523320A6B00F02430 /* starSelect.png */; };
 		594644D74714DDE755316BC2 /* Pods_MobilePhoneBuyerGuideUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D99223EC0A32D862140876 /* Pods_MobilePhoneBuyerGuideUITests.framework */; };
 		5F81B04DC12A86A15E2F6482 /* Pods_MobilePhoneBuyerGuideTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820DFA0A919F04CF7D5090FE /* Pods_MobilePhoneBuyerGuideTests.framework */; };
 		9C38F7C367AD6077565AA1E7 /* Pods_MobilePhoneBuyerGuide.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8E5F938259BB7B314182252 /* Pods_MobilePhoneBuyerGuide.framework */; };
@@ -66,8 +64,6 @@
 		501C60ED2331E21900F02430 /* MobileDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailViewController.swift; sourceTree = "<group>"; };
 		501C60EF233206F900F02430 /* MobileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileTableViewCell.swift; sourceTree = "<group>"; };
 		501C60F0233206F900F02430 /* MobileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MobileTableViewCell.xib; sourceTree = "<group>"; };
-		501C60F323320A3B00F02430 /* starUnselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = starUnselect.png; path = ../../../Downloads/starUnselect.png; sourceTree = "<group>"; };
-		501C60F523320A6B00F02430 /* starSelect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = starSelect.png; path = ../../../Downloads/starSelect.png; sourceTree = "<group>"; };
 		5326E8473DB3B4BDEB3F0D79 /* Pods-MobilePhoneBuyerGuideUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePhoneBuyerGuideUITests.release.xcconfig"; path = "Target Support Files/Pods-MobilePhoneBuyerGuideUITests/Pods-MobilePhoneBuyerGuideUITests.release.xcconfig"; sourceTree = "<group>"; };
 		6C768840452B59C39AC2A9C0 /* Pods-MobilePhoneBuyerGuideTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePhoneBuyerGuideTests.debug.xcconfig"; path = "Target Support Files/Pods-MobilePhoneBuyerGuideTests/Pods-MobilePhoneBuyerGuideTests.debug.xcconfig"; sourceTree = "<group>"; };
 		820DFA0A919F04CF7D5090FE /* Pods_MobilePhoneBuyerGuideTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MobilePhoneBuyerGuideTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,8 +138,6 @@
 				501C609B2330937F00F02430 /* Assets.xcassets */,
 				501C609D2330937F00F02430 /* LaunchScreen.storyboard */,
 				501C60A02330937F00F02430 /* Info.plist */,
-				501C60F323320A3B00F02430 /* starUnselect.png */,
-				501C60F523320A6B00F02430 /* starSelect.png */,
 			);
 			path = MobilePhoneBuyerGuide;
 			sourceTree = "<group>";
@@ -297,11 +291,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				501C60F423320A3B00F02430 /* starUnselect.png in Resources */,
 				501C609F2330937F00F02430 /* LaunchScreen.storyboard in Resources */,
 				501C60F2233206F900F02430 /* MobileTableViewCell.xib in Resources */,
 				501C609C2330937F00F02430 /* Assets.xcassets in Resources */,
-				501C60F623320A6B00F02430 /* starSelect.png in Resources */,
 				501C609A2330937D00F02430 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
