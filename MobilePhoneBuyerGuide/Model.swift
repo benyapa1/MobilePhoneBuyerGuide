@@ -42,3 +42,9 @@ struct MobileImage: Codable {
     }
 }
 
+enum SortingData {
+    case priceLowToHigh
+    case priceHighToLow
+    case rating
+}
+

@@ -23,9 +23,36 @@ class ViewController: UIViewController {
         let nib = UINib(nibName: "MobileTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "MobileTableViewCellIdentifier")
         allButton.isSelected = true
-        getAPI()
         self.alert = createAlert()
         tableView.tableFooterView = UIView()
+        if let listFav = UserDefaults.standard.array(forKey: "mobileFav") as? [Int],
+            let sortData = UserDefaults.standard.object(forKey: "sorting") as? SortingData{
+            getAPI()
+            self.mobileList = self.mobileList.map { (mobile) -> Mobile in
+                if listFav.contains(mobile.id){
+                    return Mobile(thumbImageURL: mobile.thumbImageURL, brand: mobile.brand, price: mobile.price, description: mobile.description, name: mobile.name, rating: mobile.rating, id: mobile.id, isFav: true)
+                }
+                return mobile
+            }
+            
+            switch sortData {
+            case .priceLowToHigh :
+                <#code#>
+            case .priceHighToLow:
+                <#code#>
+            case .rating:
+                <#code#>
+            }
+        } else {
+            getAPI()
+        }
+        
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        let sendtouserdefault = self.mobileList.filter { (mobile) -> Bool in return mobile.isFav }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
