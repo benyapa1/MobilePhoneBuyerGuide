@@ -34,26 +34,38 @@ class ViewController: UIViewController {
                 }
                 return mobile
             }
-            
+
             switch sortData {
             case .priceLowToHigh :
-                <#code#>
+               self.mobileList.sort(by: { (mobile1, mobile2) -> Bool in
+                    return mobile1.price < mobile2.price
+                })
             case .priceHighToLow:
-                <#code#>
+                self.mobileList.sort(by: { (mobile1, mobile2) -> Bool in
+                    return mobile1.price > mobile2.price
+                })
             case .rating:
-                <#code#>
+                self.mobileList.sort(by: { (mobile1, mobile2) -> Bool in
+                    return mobile1.rating > mobile2.rating
+                })
             }
         } else {
             getAPI()
         }
-        
+//        getAPI()
         
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        let sendtouserdefault = self.mobileList.filter { (mobile) -> Bool in return mobile.isFav }
-        
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        let sendToUserDefault = self.mobileList.filter { (mobile) -> Bool in return mobile.isFav }
+//        let sendToUserDefaultID = sendToUserDefault.map({ (mobile) -> Int in
+//            return mobile.id
+//        })
+//        UserDefaults.standard.set(sendToUserDefaultID, forKey: "mobileFav")
+//        UserDefaults.standard.set(SortingData.priceHighToLow, forKey: "sorting")
+//        print(UserDefaults.standard.array(forKey: "mobileFav"))
+//        print("eiei")
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let item = sender as? Mobile,
@@ -203,4 +215,3 @@ extension ViewController: MobileTableViewCellDelegate{
         }
     }
 }
-
