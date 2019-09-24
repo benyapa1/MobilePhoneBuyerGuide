@@ -36,30 +36,31 @@ class MobileListInteractor: MobileListInteractorInterface {
     }
   }
     func getSortData(request: MobileList.showListWithSorting.Request) {
-        guard var list = self.model,
-            let isFav = request.isFav,
-            let sortType = request.sortingType else {
+        guard var list = self.model else {
             return
         }
-        switch sortType {
-        case .priceHighToLow:
-            list.sort(by: { (mobile1, mobile2) -> Bool in
-                let doCompare1 = doCompare(isMoreThan: true)
-                return doCompare1(mobile1.price, mobile2.price)
-            })
-        case .priceLowToHigh:
-            list.sort(by: { (mobile1, mobile2) -> Bool in
-                let doCompare1 = doCompare(isMoreThan: false)
-                return doCompare1(mobile1.price, mobile2.price)
-            })
-        case .rating:
-            list.sort(by: { (mobile1, mobile2) -> Bool in
-                let doCompare1 = doCompare(isMoreThan: true)
-                return doCompare1(mobile1.rating, mobile2.rating)
-            })
+        if  let sortType = request.sortingType {
+            switch sortType {
+            case .priceHighToLow:
+                list.sort(by: { (mobile1, mobile2) -> Bool in
+                    let doCompare1 = doCompare(isMoreThan: true)
+                    return doCompare1(mobile1.price, mobile2.price)
+                })
+            case .priceLowToHigh:
+                list.sort(by: { (mobile1, mobile2) -> Bool in
+                    let doCompare1 = doCompare(isMoreThan: false)
+                    return doCompare1(mobile1.price, mobile2.price)
+                })
+            case .rating:
+                list.sort(by: { (mobile1, mobile2) -> Bool in
+                    let doCompare1 = doCompare(isMoreThan: true)
+                    return doCompare1(mobile1.rating, mobile2.rating)
+                })
+            }
+            self.model? = list
         }
-        self.model? = list
-        if isFav {
+        
+        if let isFav = request.isFav, isFav {
             list = list.filter { (item) -> Bool in
                 return item.isFav
             }

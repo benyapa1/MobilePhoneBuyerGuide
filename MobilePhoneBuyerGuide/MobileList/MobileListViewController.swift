@@ -117,8 +117,6 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
                 self.tableView.reloadData()
         }
     }
-    
-    
     func showErrorAlert(error: Error) {
         
     }
@@ -168,14 +166,14 @@ extension MobileListViewController: UITableViewDataSource{
         }
         let item = mobileList[indexPath.row]
         cell.setViewByItem(mobile: item, isHidden: isFav)
-//        cell.delegate = self
+        cell.delegate = self
         return cell
     }
 }
 
 extension MobileListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        self.performSegue(withIdentifier: "showDetail", sender: mobilesListShow[indexPath.row])
+//        self.performSegue(withIdentifier: "showDetail", sender: mobilesListShow[indexPath.row])
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         //if this view is favourite page, table view can delete
@@ -195,7 +193,7 @@ extension MobileListViewController: UITableViewDelegate{
 extension MobileListViewController: MobileTableViewCellDelegate{
     func doClickFav(cell: MobileTableViewCell, isFav: Bool) {
         if let indexInView = tableView.indexPath(for: cell){
-            
+            requestAddtoFav(index: indexInView.row, isFav: isFav)
 //            let index = searchShowItemInActualArray(indexRow: indexInView.row)
 //            mobileList[index].isFav = isFav
 //            mobilesListShow[indexInView.row].isFav = isFav

@@ -143,7 +143,7 @@ extension ViewController: UITableViewDataSource{
         }
         let item = mobilesListShow[indexPath.row]
         cell.setViewByItem(mobile: item, isHidden: isHidden)
-        cell.delegate = self
+//        cell.delegate = self as? MobileTableViewCellDelegate
         return cell
     }
 }
@@ -167,13 +167,13 @@ extension ViewController: UITableViewDelegate{
     }
 }
 
-extension ViewController: MobileTableViewCellDelegate{
-    func doClickFav(cell: MobileTableViewCell, isFav: Bool) {
-        if let indexInView = tableView.indexPath(for: cell){
-            let index = searchShowItemInActualArray(indexRow: indexInView.row)
-            mobileList[index].isFav = isFav
-            mobilesListShow[indexInView.row].isFav = isFav
-        }
-    }
-}
+//extension ViewController: MobileTableViewCellDelegate{
+//    func doClickFav(cell: MobileTableViewCell, isFav: Bool) {
+//        if let indexInView = tableView.indexPath(for: cell){
+//            let index = searchShowItemInActualArray(indexRow: indexInView.row)
+//            mobileList[index].isFav = isFav
+//            mobilesListShow[indexInView.row].isFav = isFav
+//        }
+//    }
+//}
 
