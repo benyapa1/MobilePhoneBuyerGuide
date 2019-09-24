@@ -9,12 +9,13 @@
 import UIKit
 
 protocol MobileListStoreProtocol {
-  func getData(_ completion: @escaping (Result<Entity>) -> Void)
+  func getData(_ completion: @escaping (Result<[Mobile], Error>) -> Void)
 }
 
 class MobileListWorker {
 
   var store: MobileListStoreProtocol
+    private var mobileList: [Mobile] = []
 
   init(store: MobileListStoreProtocol) {
     self.store = store
@@ -22,11 +23,12 @@ class MobileListWorker {
 
   // MARK: - Business Logic
 
-  func doSomeWork(_ completion: @escaping (Result<Entity>) -> Void) {
+  func doGetDataFromAPI(_ completion: @escaping (Result<[Mobile], Error>) -> Void) {
     // NOTE: Do the work
-    store.getData {
+    store.getData { (result) in
       // The worker may perform some small business logic before returning the result to the Interactor
-      completion($0)
+        completion(result)
     }
   }
 }
+

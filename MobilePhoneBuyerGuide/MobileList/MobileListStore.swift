@@ -19,10 +19,28 @@ import Foundation
  */
 
 class MobileListStore: MobileListStoreProtocol {
-  func getData(_ completion: @escaping (Result<Entity>) -> Void) {
-    // Simulates an asynchronous background thread that calls back on the main thread after 2 seconds
-    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-      completion(Result.success(Entity()))
+  func getData(_ completion: @escaping (Result<[Mobile], Error>) -> Void) {
+    let urlGetListString: String = "https://scb-test-mobile.herokuapp.com/api/mobiles/"
+    if let url = URL(string: urlGetListString) {
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error1 = error {
+                completion(Result.failure(error1))
+            } else if let data = data, let response = response as? HTTPURLResponse {
+                if response.statusCode == 200 {
+                    do {
+                        let mobiles = try JSONDecoder().decode([Mobile].self, from: data)
+                        completion(Result.success(mobiles))
+                        
+                    } catch {
+//                        completion(Result.failure())
+                        print("parse JSON failed")
+                    }
+                }
+            }
+        }
+        task.resume()
     }
   }
 }

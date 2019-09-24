@@ -9,27 +9,27 @@
 import UIKit
 
 protocol MobileListInteractorInterface {
-  func doSomething(request: MobileList.Something.Request)
-  var model: Entity? { get }
+  func getAPI(request: MobileList.ShowListMobile.Request)
+  var model: Any? { get }
 }
 
 class MobileListInteractor: MobileListInteractorInterface {
   var presenter: MobileListPresenterInterface!
   var worker: MobileListWorker?
-  var model: Entity?
+  var model: Any?
+    
 
   // MARK: - Business logic
 
-  func doSomething(request: MobileList.Something.Request) {
-    worker?.doSomeWork { [weak self] in
-      if case let Result.success(data) = $0 {
-        // If the result was successful, we keep the data so that we can deliver it to another view controller through the router.
+  func getAPI(request: MobileList.ShowListMobile.Request) {
+    worker?.doGetDataFromAPI { [weak self] (result) in
+      if case let .success(data) = result{
         self?.model = data
-      }
-
-      // NOTE: Pass the result to the Presenter. This is done by creating a response model with the result from the worker. The response could contain a type like UserResult enum (as declared in the SCB Easy project) with the result as an associated value.
-      let response = MobileList.Something.Response()
-      self?.presenter.presentSomething(response: response)
+      } else if case let .failure(data) = result{
+        self?.model = data
+    }
+        let response = MobileList.ShowListMobile.Response(model: self?.model as Any)
+        self?.presenter.presentfromAPI(response: response)
     }
   }
 }

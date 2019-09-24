@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8YD-iu-fyg">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8YD-iu-fyg">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="-5864" y="-494"/>
         </scene>
-        <!--View Controller-->
+        <!--Mobile List View Controller-->
         <scene sceneID="POF-Tm-iaI">
             <objects>
-                <viewController id="0Zf-AM-NkP" customClass="ViewController" customModule="MobilePhoneBuyerGuide" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0Zf-AM-NkP" customClass="MobileListViewController" customModule="MobilePhoneBuyerGuide" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="088-6H-4ai">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,9 +42,6 @@
                                 <state key="selected">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="didClickAllButton:" destination="0Zf-AM-NkP" eventType="touchUpInside" id="CrA-Ef-ffx"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qc-fK-DiE">
                                 <rect key="frame" x="209.5" y="88" width="204.5" height="50"/>
@@ -61,16 +56,13 @@
                                 <state key="selected">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
-                                <connections>
-                                    <action selector="didClickFavButton:" destination="0Zf-AM-NkP" eventType="touchUpInside" id="eqY-9r-ZDZ"/>
-                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="79b-dZ-fH5">
                                 <rect key="frame" x="0.0" y="146" width="414" height="716"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="nDf-u8-ESi">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nDf-u8-ESi" id="MBh-bp-OaH">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -79,8 +71,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="0Zf-AM-NkP" id="CRO-lk-VXX"/>
-                                    <outlet property="delegate" destination="0Zf-AM-NkP" id="vfy-kP-b47"/>
+                                    <outlet property="dataSource" destination="0Zf-AM-NkP" id="imp-nH-tLV"/>
+                                    <outlet property="delegate" destination="0Zf-AM-NkP" id="oid-hn-F3d"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -101,16 +93,12 @@
                         <viewLayoutGuide key="safeArea" id="Cgr-z4-6Hq"/>
                     </view>
                     <navigationItem key="navigationItem" id="gHJ-dN-5OZ">
-                        <barButtonItem key="rightBarButtonItem" title="Sort" id="r2x-fk-Ml5">
-                            <connections>
-                                <action selector="didClickSortButton:" destination="0Zf-AM-NkP" id="lvZ-el-awB"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Sort" id="r2x-fk-Ml5"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="allButton" destination="WMF-62-rYg" id="wcE-Sx-BZT"/>
-                        <outlet property="favButton" destination="2Qc-fK-DiE" id="1zu-Wx-1oh"/>
-                        <outlet property="tableView" destination="79b-dZ-fH5" id="B7H-cD-Y0c"/>
+                        <outlet property="allButton" destination="WMF-62-rYg" id="Ezl-my-vGV"/>
+                        <outlet property="favButton" destination="2Qc-fK-DiE" id="wNz-aL-xch"/>
+                        <outlet property="tableView" destination="79b-dZ-fH5" id="xUg-cG-bQk"/>
                         <segue destination="yII-FB-5iQ" kind="show" identifier="showDetail" id="PSy-P1-DU9"/>
                     </connections>
                 </viewController>

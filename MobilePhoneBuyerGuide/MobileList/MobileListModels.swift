@@ -10,12 +10,16 @@ import UIKit
 
 struct MobileList {
   /// This structure represents a use case
-  struct Something {
+  struct ShowListMobile {
     /// Data struct sent to Interactor
     struct Request {}
     /// Data struct sent to Presenter
-    struct Response {}
+    struct Response {
+        var model: Any
+    }
     /// Data struct sent to ViewController
-    struct ViewModel {}
+    struct ViewModel {
+        var model: Any
+    }
   }
 }
