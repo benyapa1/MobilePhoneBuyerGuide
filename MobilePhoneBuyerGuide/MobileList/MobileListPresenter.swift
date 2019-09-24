@@ -10,7 +10,10 @@ import UIKit
 
 protocol MobileListPresenterInterface {
   func presentfromAPI(response: MobileList.ShowListMobile.Response)
-  func presentFromSortingOrFilterFav(response: MobileList.showListWithSorting.Response)
+  func presentFromSorting(response: MobileList.showListWithSorting.Response)
+  func presentFromAddFav(response: MobileList.addfav.Response)
+  func presentFromChangePage(response: MobileList.changePage.Response)
+  func presentFromDeletePage(response: MobileList.deleteFav.Response)
 }
 
 class MobileListPresenter: MobileListPresenterInterface {
@@ -19,14 +22,28 @@ class MobileListPresenter: MobileListPresenterInterface {
   // MARK: - Presentation logic
 
   func presentfromAPI(response: MobileList.ShowListMobile.Response) {
-    // NOTE: Format the response from the Interactor and pass the result back to the View Controller. The resulting view model should be using only primitive types. Eg: the view should not need to involve converting date object into a formatted string. The formatting is done here.
-    
     let viewModel = MobileList.ShowListMobile.ViewModel(list: response.list, error: response.error)
     viewController.displayTableViewFromApi(viewModel: viewModel)
   }
     
-    func presentFromSortingOrFilterFav(response: MobileList.showListWithSorting.Response) {
+    func presentFromSorting(response: MobileList.showListWithSorting.Response) {
         let viewModel = MobileList.showListWithSorting.ViewModel(list: response.list)
-        viewController.displayTableView(viewModel: viewModel)
+        viewController.displayViewFromSortingData(viewModel: viewModel)
+    }
+    
+    func presentFromAddFav(response: MobileList.addfav.Response) {
+        let viewModel = MobileList.addfav.ViewModel(list: response.list)
+        viewController.displayViewFromChangeFav(viewModel: viewModel)
+        
+    }
+    
+    func presentFromChangePage(response: MobileList.changePage.Response) {
+        let viewModel = MobileList.changePage.ViewModel(list: response.list)
+        viewController.displayViewByPage(viewModel: viewModel)
+    }
+    
+    func presentFromDeletePage(response: MobileList.deleteFav.Response) {
+        let viewModel = MobileList.deleteFav.ViewModel(list: response.list)
+        viewController.displayViewFromDeleteFav(viewModel: viewModel)
     }
 }

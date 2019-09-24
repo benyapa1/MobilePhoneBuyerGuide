@@ -11,9 +11,12 @@ import UIKit
 protocol MobileListInteractorInterface {
   func getAPI(request: MobileList.ShowListMobile.Request)
   func getSortData(request: MobileList.showListWithSorting.Request)
-  var model: [Mobile]? { get }
-    var error: Error? { get }
+    func getDataFromPage(request: MobileList.changePage.Request)
     func addFav(request: MobileList.addfav.Request)
+    func deleteFav(request: MobileList.deleteFav.Request)
+    
+    var model: [Mobile]? { get }
+      var error: Error? { get }
 }
 
 class MobileListInteractor: MobileListInteractorInterface {
@@ -60,13 +63,13 @@ class MobileListInteractor: MobileListInteractorInterface {
             self.model? = list
         }
         
-        if let isFav = request.isFav, isFav {
-            list = list.filter { (item) -> Bool in
-                return item.isFav
-            }
-        }
+//        if let isFav = request.isFav, isFav {
+//            list = list.filter { (item) -> Bool in
+//                return item.isFav
+//            }
+//        }
         let response = MobileList.showListWithSorting.Response(list: list)
-        self.presenter.presentFromSortingOrFilterFav(response: response)
+        self.presenter.presentFromSorting(response: response)
     }
     
     private func doCompare(isMoreThan: Bool) -> (Float, Float) -> Bool {
@@ -81,8 +84,26 @@ class MobileListInteractor: MobileListInteractorInterface {
     
     func addFav(request: MobileList.addfav.Request) {
         self.model?[request.index].isFav = request.isFav
-        let response = MobileList.addfav.Response(list: self.model)
-//        self.presenter.
+        let response = MobileList.addfav.Response(list: self.model ?? [])
+        self.presenter.presentFromAddFav(response: response)
+    }
+    
+    func getDataFromPage(request: MobileList.changePage.Request) {
+        guard let isFavPage = request.isFavPage else { return }
+        var list: [Mobile]?
+        if isFavPage {
+            list = self.model?.filter { (item) -> Bool in
+                return item.isFav
+            }
+        } else {
+            list = self.model
+        }
+        let response = MobileList.changePage.Response(list: list ?? [])
+        self.presenter.presentFromChangePage(response: response)
+    }
+    
+    func deleteFav(request: MobileList.deleteFav.Request) {
+        
     }
 }
 

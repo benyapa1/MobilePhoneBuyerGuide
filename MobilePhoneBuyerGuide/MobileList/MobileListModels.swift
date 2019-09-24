@@ -28,23 +28,48 @@ struct MobileList {
             var isFav: Bool?
         }
         struct Response {
-            var list: [Mobile]?
+            var list: [Mobile]
         }
         struct ViewModel {
-            var list: [Mobile]?
+            var list: [Mobile]
         }
     }
     
-    struct  addfav{
+    struct changePage {
+        struct Request {
+            var isFavPage: Bool?
+        }
+        struct Response {
+            var list: [Mobile]
+        }
+        struct ViewModel {
+            var list: [Mobile]
+        }
+    }
+    
+    struct addfav {
         struct Request {
             var index: Int
             var isFav: Bool
         }
         struct Response {
-            var list: [Mobile]?
+            var list: [Mobile]
         }
         struct ViewModel {
-            var list: [Mobile]?
+            var list: [Mobile]
+        }
+    }
+    
+    struct deleteFav {
+        struct Request {
+            var index: Int
+            var list: [Mobile]
+        }
+        struct Response {
+            var list: [Mobile]
+        }
+        struct ViewModel {
+            var list: [Mobile]
         }
     }
 }
