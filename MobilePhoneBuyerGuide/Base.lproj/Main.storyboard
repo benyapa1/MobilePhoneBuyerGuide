@@ -42,6 +42,9 @@
                                 <state key="selected">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="didClickAllButton:" destination="0Zf-AM-NkP" eventType="touchUpInside" id="h4y-uv-7X4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qc-fK-DiE">
                                 <rect key="frame" x="209.5" y="88" width="204.5" height="50"/>
@@ -56,6 +59,9 @@
                                 <state key="selected">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="didClickFavButton:" destination="0Zf-AM-NkP" eventType="touchUpInside" id="pSi-yf-A7L"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="79b-dZ-fH5">
                                 <rect key="frame" x="0.0" y="146" width="414" height="716"/>
@@ -93,7 +99,11 @@
                         <viewLayoutGuide key="safeArea" id="Cgr-z4-6Hq"/>
                     </view>
                     <navigationItem key="navigationItem" id="gHJ-dN-5OZ">
-                        <barButtonItem key="rightBarButtonItem" title="Sort" id="r2x-fk-Ml5"/>
+                        <barButtonItem key="rightBarButtonItem" title="Sort" id="r2x-fk-Ml5">
+                            <connections>
+                                <action selector="didClickSortButton:" destination="0Zf-AM-NkP" id="Fg9-xK-FsU"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="allButton" destination="WMF-62-rYg" id="Ezl-my-vGV"/>

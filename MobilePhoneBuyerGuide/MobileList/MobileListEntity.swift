@@ -26,6 +26,11 @@ import Foundation
 //  case failure(Error)
 //}
 
+enum SortType {
+    case priceLowToHigh
+    case priceHighToLow
+    case rating
+}
 //
 // The entity or business object
 //

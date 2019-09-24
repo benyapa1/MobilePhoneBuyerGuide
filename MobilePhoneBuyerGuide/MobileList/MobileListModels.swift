@@ -9,17 +9,43 @@
 import UIKit
 
 struct MobileList {
-  /// This structure represents a use case
+    
   struct ShowListMobile {
-    /// Data struct sent to Interactor
     struct Request {}
-    /// Data struct sent to Presenter
     struct Response {
-        var model: Any
+        var list: [Mobile]?
+        var error: Error?
     }
-    /// Data struct sent to ViewController
     struct ViewModel {
-        var model: Any
+        var list: [Mobile]?
+        var error: Error?
     }
   }
+   
+    struct showListWithSorting {
+        struct Request {
+            var sortingType: SortType?
+            var isFav: Bool?
+        }
+        struct Response {
+            var list: [Mobile]?
+        }
+        struct ViewModel {
+            var list: [Mobile]?
+        }
+    }
+    
+    struct  addfav{
+        struct Request {
+            var index: Int
+            var isFav: Bool
+        }
+        struct Response {
+            var list: [Mobile]?
+        }
+        struct ViewModel {
+            var list: [Mobile]?
+        }
+    }
 }
+
