@@ -18,7 +18,7 @@ class MobileDetailViewController: UIViewController {
     
     var item: Mobile?
     private var mobileImages: [MobileImage] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getAPI()
@@ -45,7 +45,7 @@ class MobileDetailViewController: UIViewController {
                         let url = image.url.suffix(from: index)
                         return MobileImage(mobileId: image.mobileId,
                                            url: "https://" + String(url),
-                                    id: image.id)
+                                           id: image.id)
                     }
                     return image
                 }

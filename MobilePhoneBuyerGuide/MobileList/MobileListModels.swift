@@ -62,6 +62,7 @@ struct MobileList {
     
     struct deleteFav {
         struct Request {
+            var id: Int
             var index: Int
             var list: [Mobile]
         }

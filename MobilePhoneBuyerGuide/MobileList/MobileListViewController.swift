@@ -9,16 +9,16 @@
 import UIKit
 
 protocol MobileListViewControllerInterface: class {
-  func displayTableViewFromApi(viewModel: MobileList.ShowListMobile.ViewModel)
-  func displayViewFromSortingData(viewModel: MobileList.showListWithSorting.ViewModel)
-  func displayViewByPage(viewModel: MobileList.changePage.ViewModel)
-  func displayViewFromDeleteFav(viewModel: MobileList.deleteFav.ViewModel)
-  func displayViewFromChangeFav(viewModel: MobileList.addfav.ViewModel)
+    func displayTableViewFromApi(viewModel: MobileList.ShowListMobile.ViewModel)
+    func displayViewFromSortingData(viewModel: MobileList.showListWithSorting.ViewModel)
+    func displayViewByPage(viewModel: MobileList.changePage.ViewModel)
+    func displayViewFromDeleteFav(viewModel: MobileList.deleteFav.ViewModel)
+    func displayViewFromChangeFav(viewModel: MobileList.addfav.ViewModel)
 }
 
 class MobileListViewController: UIViewController, MobileListViewControllerInterface {
-  var interactor: MobileListInteractorInterface!
-  var router: MobileListRouter!
+    var interactor: MobileListInteractorInterface!
+    var router: MobileListRouter!
     
     private var mobileList: [Mobile] = []
     private var mobilesListShow: [Mobile] = []
@@ -28,48 +28,49 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     private var alert: UIAlertController!
-
-  // MARK: - Object lifecycle
-
-  override func awakeFromNib() {
-    super.awakeFromNib()
-    configure(viewController: self)
-  }
-
-  // MARK: - Configuration
-
-  private func configure(viewController: MobileListViewController) {
-    let router = MobileListRouter()
-    router.viewController = viewController
-
-    let presenter = MobileListPresenter()
-    presenter.viewController = viewController
-
-    let interactor = MobileListInteractor()
-    interactor.presenter = presenter
-    interactor.worker = MobileListWorker(store: MobileListStore())
-
-    viewController.interactor = interactor
-    viewController.router = router
-  }
-
-  // MARK: - View lifecycle
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    let nib = UINib(nibName: "MobileTableViewCell", bundle: nil)
-    tableView.register(nib, forCellReuseIdentifier: "MobileTableViewCellIdentifier")
-    allButton.isSelected = true
-    requestGetAPI()
-  }
-
-  // MARK: - Event handling
-
-  func requestGetAPI() {
-    // NOTE: Ask the Interactor to do some work
-    let request = MobileList.ShowListMobile.Request()
-    interactor.getAPI(request: request)
-  }
+    
+    // MARK: - Object lifecycle
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        configure(viewController: self)
+    }
+    
+    // MARK: - Configuration
+    
+    private func configure(viewController: MobileListViewController) {
+        let router = MobileListRouter()
+        router.viewController = viewController
+        
+        let presenter = MobileListPresenter()
+        presenter.viewController = viewController
+        
+        let interactor = MobileListInteractor()
+        interactor.presenter = presenter
+        interactor.worker = MobileListWorker(store: MobileListStore())
+        
+        viewController.interactor = interactor
+        viewController.router = router
+    }
+    
+    // MARK: - View lifecycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let nib = UINib(nibName: "MobileTableViewCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "MobileTableViewCellIdentifier")
+        allButton.isSelected = true
+        tableView.tableFooterView = UIView()
+        requestGetAPI()
+    }
+    
+    // MARK: - Event handling
+    
+    func requestGetAPI() {
+        // NOTE: Ask the Interactor to do some work
+        let request = MobileList.ShowListMobile.Request()
+        interactor.getAPI(request: request)
+    }
     
     func requestSortData(sortType: SortType?, isFav: Bool?) {
         let request = MobileList.showListWithSorting.Request(sortingType: sortType, isFav: isFav)
@@ -83,8 +84,8 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
         let request = MobileList.addfav.Request(index: index, isFav: isFav)
         interactor.addFav(request: request)
     }
-    func requestDeleteFav(index: Int) {
-        let request = MobileList.deleteFav.Request(index: index, list: self.mobileList)
+    func requestDeleteFav(id: Int, index: Int) {
+        let request = MobileList.deleteFav.Request(id: id,index: index, list: self.mobileList)
         interactor.deleteFav(request: request)
     }
     
@@ -109,20 +110,20 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
     @IBAction func didClickSortButton(_ sender: Any){
         showSortAlert()
     }
-
-  // MARK: - Display logic
-
-  func displayTableViewFromApi(viewModel: MobileList.ShowListMobile.ViewModel) {
-    // NOTE: Display the result from the Presenter
-    if let list = viewModel.list {
-        self.mobileList = list
-        DispatchQueue.main.sync {
-            self.tableView.reloadData()
+    
+    // MARK: - Display logic
+    
+    func displayTableViewFromApi(viewModel: MobileList.ShowListMobile.ViewModel) {
+        // NOTE: Display the result from the Presenter
+        if let list = viewModel.list {
+            self.mobileList = list
+            DispatchQueue.main.sync {
+                self.tableView.reloadData()
+            }
+        } else if let error = viewModel.error{
+            showErrorAlert(error: error)
         }
-    } else if let error = viewModel.error{
-        showErrorAlert(error: error)
     }
-  }
     
     func displayViewFromSortingData(viewModel: MobileList.showListWithSorting.ViewModel) {
         self.mobileList = viewModel.list
@@ -134,21 +135,21 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
         self.tableView.reloadData()
     }
     func displayViewByPage(viewModel: MobileList.changePage.ViewModel) {
-           self.mobileList = viewModel.list
-           self.tableView.reloadData()
-       }
-       
-   func displayViewFromDeleteFav(viewModel: MobileList.deleteFav.ViewModel) {
-       self.mobileList = viewModel.list
-       self.tableView.reloadData()
-   }
+        self.mobileList = viewModel.list
+        self.tableView.reloadData()
+    }
     
-// MARK: - Create alert
+    func displayViewFromDeleteFav(viewModel: MobileList.deleteFav.ViewModel) {
+        self.mobileList = viewModel.list
+        self.tableView.reloadData()
+    }
+    
+    // MARK: - Create alert
     func showErrorAlert(error: Error) {
         let alert = UIAlertController(title: "Error", message: "error ja", preferredStyle: UIAlertController.Style.alert)
-
+        
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-
+        
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -172,12 +173,12 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
         self.present(alert, animated: true, completion: nil)
         
     }
-
-  // MARK: - Router
-
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    router.passDataToNextScene(segue: segue)
-  }
+    
+    // MARK: - Router
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        router.passDataToNextScene(segue: segue)
+    }
 }
 
 // MARK: - Extension
@@ -199,7 +200,7 @@ extension MobileListViewController: UITableViewDataSource{
 
 extension MobileListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-//        self.performSegue(withIdentifier: "showDetail", sender: mobilesListShow[indexPath.row])
+        //        self.performSegue(withIdentifier: "showDetail", sender: mobilesListShow[indexPath.row])
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         //if this view is favourite page, table view can delete
@@ -208,7 +209,8 @@ extension MobileListViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            requestDeleteFav(index: indexPath.row)
+            var id = self.mobileList[indexPath.row].id
+            requestDeleteFav(id: id, index: indexPath.row)
         }
     }
 }
