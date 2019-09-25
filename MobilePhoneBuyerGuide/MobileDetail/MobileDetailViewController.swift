@@ -19,7 +19,7 @@ class MobileDetailViewController: UIViewController, MobileDetailViewControllerIn
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
-    var item: Mobile?
+    var item: MobileForShow?
     private var mobileImages: [MobileImage] = []
     
     // MARK: - Object lifecycle
@@ -71,8 +71,8 @@ class MobileDetailViewController: UIViewController, MobileDetailViewControllerIn
                 guard let item = item else { return }
                 self.title = item.name
                 detailTextView.text = item.description
-                ratingLabel.text = "Rating: \(String(format: "%.1f",item.rating))"
-                priceLabel.text = "Price: $\(String(format: "%.2f",item.price))"
+                ratingLabel.text = item.rating
+                priceLabel.text = item.price
                  self.collectionView.reloadData()
              }
         } else if let error = viewModel.fail{

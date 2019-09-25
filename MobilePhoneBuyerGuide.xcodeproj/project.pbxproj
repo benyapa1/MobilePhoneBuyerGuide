@@ -9,14 +9,11 @@
 /* Begin PBXBuildFile section */
 		500DD14F233390C400E05DA5 /* MobileDetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500DD14E233390C400E05DA5 /* MobileDetailCollectionViewCell.swift */; };
 		501C60952330937D00F02430 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60942330937D00F02430 /* AppDelegate.swift */; };
-		501C60972330937D00F02430 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60962330937D00F02430 /* ViewController.swift */; };
 		501C609A2330937D00F02430 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 501C60982330937D00F02430 /* Main.storyboard */; };
 		501C609C2330937F00F02430 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 501C609B2330937F00F02430 /* Assets.xcassets */; };
 		501C609F2330937F00F02430 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 501C609D2330937F00F02430 /* LaunchScreen.storyboard */; };
 		501C60AA2330937F00F02430 /* MobilePhoneBuyerGuideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60A92330937F00F02430 /* MobilePhoneBuyerGuideTests.swift */; };
 		501C60B52330937F00F02430 /* MobilePhoneBuyerGuideUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60B42330937F00F02430 /* MobilePhoneBuyerGuideUITests.swift */; };
-		501C60E42330C94200F02430 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60E32330C94200F02430 /* APIManager.swift */; };
-		501C60EE2331E21900F02430 /* MobileDetailViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60ED2331E21900F02430 /* MobileDetailViewController1.swift */; };
 		501C60F1233206F900F02430 /* MobileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501C60EF233206F900F02430 /* MobileTableViewCell.swift */; };
 		501C60F2233206F900F02430 /* MobileTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 501C60F0233206F900F02430 /* MobileTableViewCell.xib */; };
 		594644D74714DDE755316BC2 /* Pods_MobilePhoneBuyerGuideUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D99223EC0A32D862140876 /* Pods_MobilePhoneBuyerGuideUITests.framework */; };
@@ -62,7 +59,6 @@
 		500DD14E233390C400E05DA5 /* MobileDetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		501C60912330937D00F02430 /* MobilePhoneBuyerGuide.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobilePhoneBuyerGuide.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		501C60942330937D00F02430 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		501C60962330937D00F02430 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		501C60992330937D00F02430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		501C609B2330937F00F02430 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		501C609E2330937F00F02430 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,8 +69,6 @@
 		501C60B02330937F00F02430 /* MobilePhoneBuyerGuideUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobilePhoneBuyerGuideUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		501C60B42330937F00F02430 /* MobilePhoneBuyerGuideUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePhoneBuyerGuideUITests.swift; sourceTree = "<group>"; };
 		501C60B62330937F00F02430 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		501C60E32330C94200F02430 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
-		501C60ED2331E21900F02430 /* MobileDetailViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailViewController1.swift; sourceTree = "<group>"; };
 		501C60EF233206F900F02430 /* MobileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileTableViewCell.swift; sourceTree = "<group>"; };
 		501C60F0233206F900F02430 /* MobileTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MobileTableViewCell.xib; sourceTree = "<group>"; };
 		5326E8473DB3B4BDEB3F0D79 /* Pods-MobilePhoneBuyerGuideUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePhoneBuyerGuideUITests.release.xcconfig"; path = "Target Support Files/Pods-MobilePhoneBuyerGuideUITests/Pods-MobilePhoneBuyerGuideUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,9 +149,6 @@
 			isa = PBXGroup;
 			children = (
 				501C60942330937D00F02430 /* AppDelegate.swift */,
-				501C60E32330C94200F02430 /* APIManager.swift */,
-				501C60962330937D00F02430 /* ViewController.swift */,
-				501C60ED2331E21900F02430 /* MobileDetailViewController1.swift */,
 				501C60982330937D00F02430 /* Main.storyboard */,
 				C037C3F0233B3FDB006484FA /* MobileDetail */,
 				C058C8182338CC770057345D /* MobileList */,
@@ -486,16 +477,13 @@
 				C058C8152338CC720057345D /* MobileListViewController.swift in Sources */,
 				C037C3EA233B3FD7006484FA /* MobileDetailPresenter.swift in Sources */,
 				C037C3EB233B3FD7006484FA /* MobileDetailWorker.swift in Sources */,
-				501C60E42330C94200F02430 /* APIManager.swift in Sources */,
 				501C60F1233206F900F02430 /* MobileTableViewCell.swift in Sources */,
 				C058C8112338CC720057345D /* MobileListPresenter.swift in Sources */,
 				C037C3F4233B4171006484FA /* MobileDetailViewController.swift in Sources */,
 				C058C8122338CC720057345D /* MobileListWorker.swift in Sources */,
 				C058C8172338CC720057345D /* Mobile.swift in Sources */,
 				C037C3E9233B3FD7006484FA /* MobileDetailStore.swift in Sources */,
-				501C60EE2331E21900F02430 /* MobileDetailViewController1.swift in Sources */,
 				C037C3EE233B3FD7006484FA /* MobileDetailInteractor.swift in Sources */,
-				501C60972330937D00F02430 /* ViewController.swift in Sources */,
 				C058C8142338CC720057345D /* MobileListModels.swift in Sources */,
 				501C60952330937D00F02430 /* AppDelegate.swift in Sources */,
 				C037C3ED233B3FD7006484FA /* MobileDetailModels.swift in Sources */,

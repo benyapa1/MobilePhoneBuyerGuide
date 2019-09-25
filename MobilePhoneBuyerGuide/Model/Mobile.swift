@@ -56,7 +56,7 @@ struct MobileForShow {
     let name: String
     let rating: String
     let id: Int
-    var isFav: Bool = false
+    var isFav: Bool
 }
 
 struct MobileImage: Codable {

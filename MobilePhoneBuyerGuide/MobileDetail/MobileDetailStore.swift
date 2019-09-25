@@ -24,8 +24,8 @@ class MobileDetailStore: MobileDetailStoreProtocol {
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-                if let _ = error {
-                    print("error")
+                if let error = error {
+                    completion(.failure(error))
                 } else if let data = data, let response = response as? HTTPURLResponse {
                     if response.statusCode == 200 {
                         do {
@@ -33,7 +33,7 @@ class MobileDetailStore: MobileDetailStoreProtocol {
                             completion(Result.success(images))
                             
                         } catch {
-                            print("parse JSON failed")
+                            completion(.failure(error))
                         }
                     }
                 }

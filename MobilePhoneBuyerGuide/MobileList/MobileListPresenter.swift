@@ -22,23 +22,24 @@ class MobileListPresenter: MobileListPresenterInterface {
   // MARK: - Presentation logic
 
   func presentfromAPI(response: MobileList.ShowListMobile.Response) {
-    let viewModel = MobileList.ShowListMobile.ViewModel(list: response.list, error: response.error)
+  
+    let viewModel = MobileList.ShowListMobile.ViewModel(list: formatToString(response.list), error: response.error)
     viewController.displayTableViewFromApi(viewModel: viewModel)
   }
     
     func presentFromSorting(response: MobileList.showListWithSorting.Response) {
-        let viewModel = MobileList.showListWithSorting.ViewModel(list: response.list)
+        let viewModel = MobileList.showListWithSorting.ViewModel(list: formatToString(response.list) ?? [])
         viewController.displayViewFromSortingData(viewModel: viewModel)
     }
     
     func presentFromAddFav(response: MobileList.addfav.Response) {
-        let viewModel = MobileList.addfav.ViewModel(list: response.list)
+        let viewModel = MobileList.addfav.ViewModel(list: formatToString(response.list) ?? [])
         viewController.displayViewFromChangeFav(viewModel: viewModel)
         
     }
     
     func presentFromChangePage(response: MobileList.changePage.Response) {
-        let viewModel = MobileList.changePage.ViewModel(list: response.list)
+        let viewModel = MobileList.changePage.ViewModel(list: formatToString(response.list) ?? [])
         viewController.displayViewByPage(viewModel: viewModel)
     }
     
@@ -47,15 +48,19 @@ class MobileListPresenter: MobileListPresenterInterface {
         viewController.displayViewFromDeleteFav(viewModel: viewModel)
     }
     
-    func formatToString(list: [Mobile]) -> [MobileForShow] {
+    func formatToString(_ list: [Mobile]?) -> [MobileForShow]? {
+        guard let list = list else {
+            return nil
+        }
         return list.map { (mobile) -> MobileForShow in
             return MobileForShow(thumbImageURL: mobile.thumbImageURL,
                                  brand: mobile.brand,
                                  price: "Price: $\(String(format: "%.2f",mobile.price))",
                                  description: mobile.description,
                                  name: mobile.name,
-                                 rating: "Price: $\(String(format: "%.2f",mobile.rating))",
-                                 id: mobile.id)
+                                 rating: "Rating: \(String(format: "%.1f",mobile.rating))",
+                                 id: mobile.id,
+                                 isFav: mobile.isFav)
         }
     }
 }

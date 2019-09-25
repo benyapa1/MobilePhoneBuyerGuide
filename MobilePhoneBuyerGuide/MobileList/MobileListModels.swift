@@ -17,7 +17,7 @@ struct MobileList {
         var error: Error?
     }
     struct ViewModel {
-        var list: [Mobile]?
+        var list: [MobileForShow]?
         var error: Error?
     }
   }
@@ -31,7 +31,7 @@ struct MobileList {
             var list: [Mobile]
         }
         struct ViewModel {
-            var list: [Mobile]
+            var list: [MobileForShow]
         }
     }
     
@@ -43,7 +43,7 @@ struct MobileList {
             var list: [Mobile]
         }
         struct ViewModel {
-            var list: [Mobile]
+            var list: [MobileForShow]
         }
     }
     
@@ -56,7 +56,7 @@ struct MobileList {
             var list: [Mobile]
         }
         struct ViewModel {
-            var list: [Mobile]
+            var list: [MobileForShow]
         }
     }
     
@@ -64,13 +64,13 @@ struct MobileList {
         struct Request {
             var id: Int
             var index: Int
-            var list: [Mobile]
+            var list: [MobileForShow]
         }
         struct Response {
-            var list: [Mobile]
+            var list: [MobileForShow]
         }
         struct ViewModel {
-            var list: [Mobile]
+            var list: [MobileForShow]
         }
     }
 }

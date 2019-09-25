@@ -27,7 +27,7 @@ class MobileListRouter: MobileListRouterInput {
 
     func passDataToView(segue: UIStoryboardSegue, sender: Any?) {
     // NOTE: Teach the router how to pass data to the next scene
-    if let viewController =  segue.destination as? MobileDetailViewController, let item = sender as? Mobile {
+    if let viewController =  segue.destination as? MobileDetailViewController, let item = sender as? MobileForShow {
         viewController.item = item
     }
   }

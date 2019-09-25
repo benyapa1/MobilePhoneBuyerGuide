@@ -25,8 +25,8 @@ class MobileListStore: MobileListStoreProtocol {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error1 = error {
-                completion(Result.failure(error1))
+            if let error = error {
+                completion(Result.failure(error))
             } else if let data = data, let response = response as? HTTPURLResponse {
                 if response.statusCode == 200 {
                     do {
@@ -34,8 +34,7 @@ class MobileListStore: MobileListStoreProtocol {
                         completion(Result.success(mobiles))
                         
                     } catch {
-//                        completion(Result.failure())
-                        print("parse JSON failed")
+                        completion(.failure(error))
                     }
                 }
             }

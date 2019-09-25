@@ -20,7 +20,7 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
     var interactor: MobileListInteractorInterface!
     var router: MobileListRouter!
     
-    private var mobileList: [Mobile] = []
+    private var mobiles: [MobileForShow] = []
     private var isFavPage: Bool = false //favourite button should be hidden
     private var sortType: SortType?
     @IBOutlet weak var allButton: UIButton!
@@ -84,7 +84,7 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
         interactor.addFav(request: request)
     }
     func requestDeleteFav(id: Int, index: Int) {
-        let request = MobileList.deleteFav.Request(id: id,index: index, list: self.mobileList)
+        let request = MobileList.deleteFav.Request(id: id,index: index, list: self.mobiles)
         interactor.deleteFav(request: request)
     }
     
@@ -115,31 +115,31 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
     func displayTableViewFromApi(viewModel: MobileList.ShowListMobile.ViewModel) {
         // NOTE: Display the result from the Presenter
         if let list = viewModel.list {
-            self.mobileList = list
+            self.mobiles = list
             DispatchQueue.main.sync {
                 self.tableView.reloadData()
             }
-        } else if let error = viewModel.error{
+        } else if let error = viewModel.error {
             showErrorAlert(error: error)
         }
     }
     
     func displayViewFromSortingData(viewModel: MobileList.showListWithSorting.ViewModel) {
-        self.mobileList = viewModel.list
+        self.mobiles = viewModel.list
         self.tableView.reloadData()
     }
     
     func displayViewFromChangeFav(viewModel: MobileList.addfav.ViewModel) {
-        self.mobileList = viewModel.list
+        self.mobiles = viewModel.list
         self.tableView.reloadData()
     }
     func displayViewByPage(viewModel: MobileList.changePage.ViewModel) {
-        self.mobileList = viewModel.list
+        self.mobiles = viewModel.list
         self.tableView.reloadData()
     }
     
     func displayViewFromDeleteFav(viewModel: MobileList.deleteFav.ViewModel) {
-        self.mobileList = viewModel.list
+        self.mobiles = viewModel.list
         self.tableView.reloadData()
     }
     
@@ -158,17 +158,24 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
         let alert = UIAlertController(title: "Alert", message: "Select button to sorting data in table view", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Price Low to high", style: .default, handler: { [weak self] (_) in
-            self?.sortType = .priceLowToHigh
-            self?.requestSortData(sortType: .priceLowToHigh, isFav: self?.isFavPage ?? false)
+            if self?.sortType != .priceLowToHigh {
+                self?.sortType = .priceLowToHigh
+                self?.requestSortData(sortType: .priceLowToHigh, isFav: self?.isFavPage ?? false)
+            }
         }))
         
         alert.addAction(UIAlertAction(title: "Price high to low", style: .default, handler: { [weak self] (_) in
-            self?.sortType = .priceHighToLow
-            self?.requestSortData(sortType: .priceHighToLow, isFav: self?.isFavPage ?? false)
+            if self?.sortType != .priceHighToLow {
+                self?.sortType = .priceHighToLow
+                self?.requestSortData(sortType: .priceHighToLow, isFav: self?.isFavPage ?? false)
+            }
         }))
         alert.addAction(UIAlertAction(title: "Rating", style: .default, handler: { [weak self] (_) in
-            self?.sortType = .rating
-            self?.requestSortData(sortType: .rating, isFav: self?.isFavPage ?? false)
+            if self?.sortType != .rating {
+                self?.sortType = .rating
+                self?.requestSortData(sortType: .rating, isFav: self?.isFavPage ?? false)
+            }
+            
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
@@ -185,14 +192,14 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
 // MARK: - Extension
 extension MobileListViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.mobileList.count
+        return self.mobiles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "MobileTableViewCellIdentifier", for: indexPath) as? MobileTableViewCell else {
             return UITableViewCell()
         }
-        let item = mobileList[indexPath.row]
+        let item = mobiles[indexPath.row]
         cell.setViewByItem(mobile: item, isHidden: self.isFavPage)
         cell.delegate = self
         return cell
@@ -201,7 +208,7 @@ extension MobileListViewController: UITableViewDataSource{
 
 extension MobileListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        self.performSegue(withIdentifier: "showDetail", sender: mobileList[indexPath.row])
+        self.performSegue(withIdentifier: "showDetail", sender: mobiles[indexPath.row])
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         //if this view is favourite page, table view can delete
@@ -210,7 +217,7 @@ extension MobileListViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            let id = self.mobileList[indexPath.row].id
+            let id = self.mobiles[indexPath.row].id
             requestDeleteFav(id: id, index: indexPath.row)
         }
     }
