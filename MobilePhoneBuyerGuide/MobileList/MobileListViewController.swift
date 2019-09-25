@@ -21,7 +21,6 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
     var router: MobileListRouter!
     
     private var mobileList: [Mobile] = []
-    private var mobilesListShow: [Mobile] = []
     private var isFavPage: Bool = false //favourite button should be hidden
     private var sortType: SortType?
     @IBOutlet weak var allButton: UIButton!
@@ -177,7 +176,7 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
     // MARK: - Router
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        router.passDataToNextScene(segue: segue)
+        router.passDataToDetailScene(segue: segue, sender: sender)
     }
 }
 
@@ -200,7 +199,7 @@ extension MobileListViewController: UITableViewDataSource{
 
 extension MobileListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        //        self.performSegue(withIdentifier: "showDetail", sender: mobilesListShow[indexPath.row])
+        self.performSegue(withIdentifier: "showDetail", sender: mobileList[indexPath.row])
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         //if this view is favourite page, table view can delete

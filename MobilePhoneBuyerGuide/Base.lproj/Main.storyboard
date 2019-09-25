@@ -74,6 +74,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="yII-FB-5iQ" kind="show" identifier="showDetail" id="1Tp-Yr-bcm"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -109,7 +112,6 @@
                         <outlet property="allButton" destination="WMF-62-rYg" id="Ezl-my-vGV"/>
                         <outlet property="favButton" destination="2Qc-fK-DiE" id="wNz-aL-xch"/>
                         <outlet property="tableView" destination="79b-dZ-fH5" id="xUg-cG-bQk"/>
-                        <segue destination="yII-FB-5iQ" kind="show" identifier="showDetail" id="PSy-P1-DU9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="11a-W7-bUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -168,8 +170,8 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="yII-FB-5iQ" id="zZD-Bl-qFs"/>
-                                    <outlet property="delegate" destination="yII-FB-5iQ" id="6Mf-ht-J9y"/>
+                                    <outlet property="dataSource" destination="yII-FB-5iQ" id="vMn-OJ-g01"/>
+                                    <outlet property="delegate" destination="yII-FB-5iQ" id="Xgp-6Z-P0N"/>
                                 </connections>
                             </collectionView>
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lgV-pF-Amp">
@@ -213,11 +215,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="K1K-3n-XV0"/>
                     </view>
+                    <navigationItem key="navigationItem" id="PKv-hh-aV9"/>
                     <connections>
-                        <outlet property="collectionView" destination="Uey-Q1-vvK" id="iQ7-gQ-9nn"/>
-                        <outlet property="detailTextView" destination="q1G-Cn-6oa" id="QHP-ho-Tbx"/>
-                        <outlet property="priceLabel" destination="KEG-1V-KRM" id="JlI-AP-Rhi"/>
-                        <outlet property="ratingLabel" destination="rgF-YF-04K" id="jqW-h8-7w5"/>
+                        <outlet property="collectionView" destination="Uey-Q1-vvK" id="3Uk-QA-yLi"/>
+                        <outlet property="detailTextView" destination="q1G-Cn-6oa" id="5iP-UG-V8e"/>
+                        <outlet property="priceLabel" destination="KEG-1V-KRM" id="Z2t-cj-Vld"/>
+                        <outlet property="ratingLabel" destination="rgF-YF-04K" id="zXO-2O-mfN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SiG-Mc-VaS" userLabel="First Responder" sceneMemberID="firstResponder"/>
