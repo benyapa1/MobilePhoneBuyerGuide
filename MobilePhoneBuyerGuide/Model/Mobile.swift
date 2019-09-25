@@ -48,6 +48,17 @@ struct Mobile: Codable {
     }
 }
 
+struct MobileForShow {
+    let thumbImageURL: String
+    let brand: String
+    let price: String
+    let description: String
+    let name: String
+    let rating: String
+    let id: Int
+    var isFav: Bool = false
+}
+
 struct MobileImage: Codable {
     let mobileId: Int
     var url: String

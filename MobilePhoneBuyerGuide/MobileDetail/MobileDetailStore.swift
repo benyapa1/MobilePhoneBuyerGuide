@@ -19,14 +19,8 @@ import Foundation
  */
 
 class MobileDetailStore: MobileDetailStoreProtocol {
-    func getData(mobileId: Int, _ completion: @escaping (Result<[MobileImage],Error>) -> Void) {
-        // Simulates an asynchronous background thread that calls back on the main thread after 2 seconds
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            //      completion(Result.success())
-        }
-        
-        let urlGetListString: String = "https://scb-test-mobile.herokuapp.com/api/mobiles/\(mobileId)/images/"
-        if let url = URL(string: urlGetListString) {
+    func getData(url: String, _ completion: @escaping (Result<[MobileImage],Error>) -> Void) {
+        if let url = URL(string: url) {
             var request = URLRequest(url: url)
             request.httpMethod = "GET"
             let task = URLSession.shared.dataTask(with: request) { (data, response, error) in

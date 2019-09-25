@@ -10,12 +10,21 @@ import UIKit
 
 struct MobileDetail {
   /// This structure represents a use case
-  struct Something {
+  struct ShowScene {
     /// Data struct sent to Interactor
-    struct Request {}
+    struct Request {
+        let mobileId: Int
+    }
     /// Data struct sent to Presenter
-    struct Response {}
+    struct Response {
+        let success: [MobileImage]?
+        let fail: Error?
+    }
     /// Data struct sent to ViewController
-    struct ViewModel {}
+    struct ViewModel {
+        let success: [MobileImage]?
+        let fail: Error?
+        
+    }
   }
 }

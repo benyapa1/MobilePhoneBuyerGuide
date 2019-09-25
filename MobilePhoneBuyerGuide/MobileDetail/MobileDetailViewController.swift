@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MobileDetailViewControllerInterface: class {
-    func displaySomething(viewModel: MobileDetail.Something.ViewModel)
+    func displayImage(viewModel: MobileDetail.ShowScene.ViewModel)
 }
 
 class MobileDetailViewController: UIViewController, MobileDetailViewControllerInterface {
@@ -50,24 +50,45 @@ class MobileDetailViewController: UIViewController, MobileDetailViewControllerIn
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomethingOnLoad()
+        doGetAPIOnLoad()
     }
     
     // MARK: - Event handling
     
-    func doSomethingOnLoad() {
+    func doGetAPIOnLoad() {
         // NOTE: Ask the Interactor to do some work
-        
-        let request = MobileDetail.Something.Request()
-        interactor.doSomething(request: request)
+        guard let item = item else { return }
+        let request = MobileDetail.ShowScene.Request(mobileId: item.id)
+        interactor.doGetAPI(request: request)
     }
     
     // MARK: - Display logic
     
-    func displaySomething(viewModel: MobileDetail.Something.ViewModel) {
-        // NOTE: Display the result from the Presenter
+    func displayImage(viewModel: MobileDetail.ShowScene.ViewModel) {
+        if let list = viewModel.success {
+             self.mobileImages = list
+             DispatchQueue.main.sync {
+                guard let item = item else { return }
+                self.title = item.name
+                detailTextView.text = item.description
+                ratingLabel.text = "Rating: \(String(format: "%.1f",item.rating))"
+                priceLabel.text = "Price: $\(String(format: "%.2f",item.price))"
+                 self.collectionView.reloadData()
+             }
+        } else if let error = viewModel.fail{
+             showErrorAlert(error: error)
+         }
+    }
+    
+    // MARK: - Create alert
+    func showErrorAlert(error: Error) {
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
         
-        // nameTextField.text = viewModel.name
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        DispatchQueue.main.sync {
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Router
@@ -79,5 +100,19 @@ class MobileDetailViewController: UIViewController, MobileDetailViewControllerIn
     @IBAction func unwindToMobileDetailViewController(from segue: UIStoryboardSegue) {
         print("unwind...")
         router.passDataToNextScene(segue: segue)
+    }
+}
+
+extension MobileDetailViewController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return mobileImages.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MobileDetailCollectionCell", for: indexPath) as? MobileDetailCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        cell.configCell(urlImage: mobileImages[indexPath.row].url)
+        return cell
     }
 }

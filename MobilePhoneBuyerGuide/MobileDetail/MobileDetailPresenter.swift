@@ -9,18 +9,16 @@
 import UIKit
 
 protocol MobileDetailPresenterInterface {
-  func presentSomething(response: MobileDetail.Something.Response)
+    func presentImageCollectionView(response: MobileDetail.ShowScene.Response)
 }
 
 class MobileDetailPresenter: MobileDetailPresenterInterface {
-  weak var viewController: MobileDetailViewControllerInterface!
-
-  // MARK: - Presentation logic
-
-  func presentSomething(response: MobileDetail.Something.Response) {
-    // NOTE: Format the response from the Interactor and pass the result back to the View Controller. The resulting view model should be using only primitive types. Eg: the view should not need to involve converting date object into a formatted string. The formatting is done here.
-
-    let viewModel = MobileDetail.Something.ViewModel()
-    viewController.displaySomething(viewModel: viewModel)
-  }
+    weak var viewController: MobileDetailViewControllerInterface!
+    
+    // MARK: - Presentation logic
+    
+    func presentImageCollectionView(response: MobileDetail.ShowScene.Response) {
+        let viewModel = MobileDetail.ShowScene.ViewModel(success: response.success, fail: response.fail)
+        viewController.displayImage(viewModel: viewModel)
+    }
 }

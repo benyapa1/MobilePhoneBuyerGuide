@@ -46,4 +46,16 @@ class MobileListPresenter: MobileListPresenterInterface {
         let viewModel = MobileList.deleteFav.ViewModel(list: response.list)
         viewController.displayViewFromDeleteFav(viewModel: viewModel)
     }
+    
+    func formatToString(list: [Mobile]) -> [MobileForShow] {
+        return list.map { (mobile) -> MobileForShow in
+            return MobileForShow(thumbImageURL: mobile.thumbImageURL,
+                                 brand: mobile.brand,
+                                 price: "Price: $\(String(format: "%.2f",mobile.price))",
+                                 description: mobile.description,
+                                 name: mobile.name,
+                                 rating: "Price: $\(String(format: "%.2f",mobile.rating))",
+                                 id: mobile.id)
+        }
+    }
 }

@@ -145,11 +145,13 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
     
     // MARK: - Create alert
     func showErrorAlert(error: Error) {
-        let alert = UIAlertController(title: "Error", message: "error ja", preferredStyle: UIAlertController.Style.alert)
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
-        self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.sync {
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func showSortAlert() {
