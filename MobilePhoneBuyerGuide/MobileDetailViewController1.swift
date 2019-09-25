@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MobileDetailViewController: UIViewController {
+class MobileDetailViewController1: UIViewController {
     
     @IBOutlet weak var detailTextView: UITextView!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -57,7 +57,7 @@ class MobileDetailViewController: UIViewController {
     }
 }
 
-extension MobileDetailViewController: UICollectionViewDataSource{
+extension MobileDetailViewController1: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return mobileImages.count
     }

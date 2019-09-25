@@ -209,7 +209,7 @@ extension MobileListViewController: UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
-            var id = self.mobileList[indexPath.row].id
+            let id = self.mobileList[indexPath.row].id
             requestDeleteFav(id: id, index: indexPath.row)
         }
     }

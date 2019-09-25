@@ -21,23 +21,13 @@ import Foundation
 
  */
 
-//enum Result <T> {
-//  case success(T)
-//  case failure(Error)
-//}
-
 enum SortType {
     case priceLowToHigh
     case priceHighToLow
     case rating
 }
-//
-// The entity or business object
-//
-struct Entity {}
 
 struct Mobile: Codable {
-    
     let thumbImageURL: String
     let brand: String
     let price: Float

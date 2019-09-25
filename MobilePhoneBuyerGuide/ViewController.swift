@@ -31,7 +31,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let item = sender as? Mobile,
             segue.identifier == "showDetail",
-            let viewController =  segue.destination as? MobileDetailViewController{
+            let viewController =  segue.destination as? MobileDetailViewController1{
             viewController.item = item
         }
     }
