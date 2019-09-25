@@ -27,6 +27,9 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     private var alert: UIAlertController!
+    private let tableNibName = "MobileTableViewCell"
+    private let tableCellIdentifier = "MobileTableViewCellIdentifier"
+    private let segueName = "showDetail"
     
     // MARK: - Object lifecycle
     
@@ -56,8 +59,8 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nib = UINib(nibName: "MobileTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "MobileTableViewCellIdentifier")
+        let nib = UINib(nibName: tableNibName, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: tableCellIdentifier)
         allButton.isSelected = true
         tableView.tableFooterView = UIView()
         requestGetAPI()
@@ -113,11 +116,10 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
     // MARK: - Display logic
     
     func displayTableViewFromApi(viewModel: MobileList.ShowListMobile.ViewModel) {
-        // NOTE: Display the result from the Presenter
         if let list = viewModel.list {
             self.mobiles = list
-            DispatchQueue.main.sync {
-                self.tableView.reloadData()
+            DispatchQueue.main.async { [weak self] () in
+                self?.tableView.reloadData()
             }
         } else if let error = viewModel.error {
             showErrorAlert(error: error)
@@ -149,8 +151,8 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
-        DispatchQueue.main.sync {
-            self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async { [weak self] () in
+            self?.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -196,7 +198,7 @@ extension MobileListViewController: UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MobileTableViewCellIdentifier", for: indexPath) as? MobileTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: tableCellIdentifier, for: indexPath) as? MobileTableViewCell else {
             return UITableViewCell()
         }
         let item = mobiles[indexPath.row]
@@ -208,7 +210,7 @@ extension MobileListViewController: UITableViewDataSource{
 
 extension MobileListViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        self.performSegue(withIdentifier: "showDetail", sender: mobiles[indexPath.row])
+        self.performSegue(withIdentifier: segueName, sender: mobiles[indexPath.row])
     }
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         //if this view is favourite page, table view can delete

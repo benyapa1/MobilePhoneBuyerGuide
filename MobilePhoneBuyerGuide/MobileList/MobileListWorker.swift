@@ -26,7 +26,6 @@ class MobileListWorker {
   func doGetDataFromAPI(_ completion: @escaping (Result<[Mobile], Error>) -> Void) {
     // NOTE: Do the work
     store.getData { (result) in
-      // The worker may perform some small business logic before returning the result to the Interactor
         completion(result)
     }
   }

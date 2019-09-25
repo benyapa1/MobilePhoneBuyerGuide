@@ -64,12 +64,11 @@ class MobileListInteractor: MobileListInteractorInterface {
             }
             self.model? = list
         }
-        
-        //        if let isFav = request.isFav, isFav {
-        //            list = list.filter { (item) -> Bool in
-        //                return item.isFav
-        //            }
-        //        }
+        if let isFav = request.isFav, isFav {
+            list = list.filter { (item) -> Bool in
+                return item.isFav
+            }
+        }
         let response = MobileList.showListWithSorting.Response(list: list)
         self.presenter.presentFromSorting(response: response)
     }

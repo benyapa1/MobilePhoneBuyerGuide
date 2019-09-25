@@ -12,7 +12,7 @@ protocol MobileDetailInteractorInterface {
     func doGetAPI(request: MobileDetail.ShowScene.Request)
     var images: [MobileImage]? { get }
     var error: Error? { get }
-    var URL_GET_API: String? { get }
+    var urlGetAPI: String? { get }
     
 }
 
@@ -21,14 +21,14 @@ class MobileDetailInteractor: MobileDetailInteractorInterface {
     var worker: MobileDetailWorker?
     var images: [MobileImage]?
     var error: Error?
-    var URL_GET_API: String?
+    var urlGetAPI: String?
     
     
     // MARK: - Business logic
     
     func doGetAPI(request: MobileDetail.ShowScene.Request) {
-        self.URL_GET_API =  "https://scb-test-mobile.herokuapp.com/api/mobiles/\(request.mobileId)/images/"
-        worker?.doGetAPI(url: self.URL_GET_API ?? "") { [weak self] in
+        self.urlGetAPI =  "https://scb-test-mobile.herokuapp.com/api/mobiles/\(request.mobileId)/images/"
+        worker?.doGetAPI(url: self.urlGetAPI ?? "") { [weak self] in
             if case let Result.success(images) = $0 {
                 self?.images = images.map({ (image) -> MobileImage in
                     if (image.url.starts(with: "https://")){

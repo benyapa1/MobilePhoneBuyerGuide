@@ -21,6 +21,7 @@ class MobileDetailViewController: UIViewController, MobileDetailViewControllerIn
     @IBOutlet weak var priceLabel: UILabel!
     var item: MobileForShow?
     private var mobileImages: [MobileImage] = []
+    private let cellIdentifier: String = "MobileDetailCollectionCell"
     
     // MARK: - Object lifecycle
     
@@ -67,13 +68,13 @@ class MobileDetailViewController: UIViewController, MobileDetailViewControllerIn
     func displayImage(viewModel: MobileDetail.ShowScene.ViewModel) {
         if let list = viewModel.success {
              self.mobileImages = list
-             DispatchQueue.main.sync {
-                guard let item = item else { return }
-                self.title = item.name
-                detailTextView.text = item.description
-                ratingLabel.text = item.rating
-                priceLabel.text = item.price
-                 self.collectionView.reloadData()
+             DispatchQueue.main.async { [weak self] () in
+                guard let item = self?.item else { return }
+                self?.title = item.name
+                self?.detailTextView.text = item.description
+                self?.ratingLabel.text = item.rating
+                self?.priceLabel.text = item.price
+                self?.collectionView.reloadData()
              }
         } else if let error = viewModel.fail{
              showErrorAlert(error: error)
@@ -86,8 +87,8 @@ class MobileDetailViewController: UIViewController, MobileDetailViewControllerIn
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         
-        DispatchQueue.main.sync {
-            self.present(alert, animated: true, completion: nil)
+        DispatchQueue.main.async { [weak self] () in
+            self?.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -109,7 +110,7 @@ extension MobileDetailViewController: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MobileDetailCollectionCell", for: indexPath) as? MobileDetailCollectionViewCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? MobileDetailCollectionViewCell else {
             return UICollectionViewCell()
         }
         cell.configCell(urlImage: mobileImages[indexPath.row].url)

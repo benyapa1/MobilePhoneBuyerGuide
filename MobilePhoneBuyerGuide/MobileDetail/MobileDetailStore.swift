@@ -8,16 +8,6 @@
 
 import Foundation
 
-/*
- 
- The MobileDetailStore class implements the MobileDetailStoreProtocol.
- 
- The source for the data could be a database, cache, or a web service.
- 
- You may remove these comments from the file.
- 
- */
-
 class MobileDetailStore: MobileDetailStoreProtocol {
     func getData(url: String, _ completion: @escaping (Result<[MobileImage],Error>) -> Void) {
         if let url = URL(string: url) {
