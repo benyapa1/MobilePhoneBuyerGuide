@@ -148,14 +148,13 @@
 		501C60932330937D00F02430 /* MobilePhoneBuyerGuide */ = {
 			isa = PBXGroup;
 			children = (
-				501C60942330937D00F02430 /* AppDelegate.swift */,
 				C037C3F5233B7686006484FA /* Storyboard */,
-				C037C3F0233B3FDB006484FA /* MobileDetail */,
-				C058C8182338CC770057345D /* MobileList */,
+				C037C3FB233CC639006484FA /* Scenes */,
 				C037C3F1233B3FEB006484FA /* Cell */,
 				C037C3F2233B4036006484FA /* Model */,
 				501C609B2330937F00F02430 /* Assets.xcassets */,
 				501C609D2330937F00F02430 /* LaunchScreen.storyboard */,
+				501C60942330937D00F02430 /* AppDelegate.swift */,
 				501C60A02330937F00F02430 /* Info.plist */,
 			);
 			path = MobilePhoneBuyerGuide;
@@ -230,6 +229,15 @@
 				501C60982330937D00F02430 /* Main.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		C037C3FB233CC639006484FA /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				C037C3F0233B3FDB006484FA /* MobileDetail */,
+				C058C8182338CC770057345D /* MobileList */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		C058C8182338CC770057345D /* MobileList */ = {
