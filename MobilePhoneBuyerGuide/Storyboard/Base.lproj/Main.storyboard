@@ -108,6 +108,7 @@
                     <connections>
                         <outlet property="allButton" destination="WMF-62-rYg" id="Ezl-my-vGV"/>
                         <outlet property="favButton" destination="2Qc-fK-DiE" id="wNz-aL-xch"/>
+                        <outlet property="sortButton" destination="r2x-fk-Ml5" id="1FQ-Q0-tQ0"/>
                         <outlet property="tableView" destination="79b-dZ-fH5" id="xUg-cG-bQk"/>
                         <segue destination="yII-FB-5iQ" kind="show" identifier="showDetail" id="PHl-Wa-srb"/>
                     </connections>

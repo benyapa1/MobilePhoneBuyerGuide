@@ -26,6 +26,7 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
     @IBOutlet weak var allButton: UIButton!
     @IBOutlet weak var favButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sortButton: UIBarButtonItem!
     private var alert: UIAlertController!
     private let tableNibName = "MobileTableViewCell"
     private let tableCellIdentifier = "MobileTableViewCellIdentifier"
@@ -122,6 +123,9 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
                 self?.tableView.reloadData()
             }
         } else if let error = viewModel.error {
+            DispatchQueue.main.async { [weak self] () in
+                self?.hideAllElementView()
+            }
             showErrorAlert(error: error)
         }
     }
@@ -143,6 +147,13 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
     func displayViewFromDeleteFav(viewModel: MobileList.deleteFav.ViewModel) {
         self.mobiles = viewModel.list
         self.tableView.reloadData()
+    }
+    
+    func hideAllElementView() {
+        allButton.isHidden = true
+        favButton.isHidden = true
+        tableView.isHidden = true
+        sortButton.isEnabled = false
     }
     
     // MARK: - Create alert
