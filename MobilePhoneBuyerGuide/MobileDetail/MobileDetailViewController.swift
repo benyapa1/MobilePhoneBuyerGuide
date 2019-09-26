@@ -77,8 +77,18 @@ class MobileDetailViewController: UIViewController, MobileDetailViewControllerIn
                 self?.collectionView.reloadData()
              }
         } else if let error = viewModel.fail{
+            DispatchQueue.main.async { [weak self] () in
+                self?.hideAllElement()
+            }
              showErrorAlert(error: error)
          }
+    }
+    
+    func hideAllElement() {
+        detailTextView.isHidden = true
+        collectionView.isHidden = true
+        ratingLabel.isHidden = true
+        priceLabel.isHidden = true
     }
     
     // MARK: - Create alert
