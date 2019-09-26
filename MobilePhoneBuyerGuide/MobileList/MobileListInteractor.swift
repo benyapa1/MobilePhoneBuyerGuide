@@ -17,11 +17,9 @@ protocol MobileListInteractorInterface {
     
     var model: [Mobile]? { get }
     var error: Error? { get }
-    var dict: [Int : Mobile]? { get }
 }
 
 class MobileListInteractor: MobileListInteractorInterface {
-    var dict: [Int : Mobile]?
     var presenter: MobileListPresenterInterface!
     var worker: MobileListWorker?
     var model: [Mobile]?
