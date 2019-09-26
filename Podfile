@@ -7,6 +7,7 @@ target 'MobilePhoneBuyerGuide' do
 
   # Pods for MobilePhoneBuyerGuide
   pod 'Kingfisher', '~> 5.0'
+  pod 'Alamofire', '~> 4.5'
 
   target 'MobilePhoneBuyerGuideTests' do
     inherit! :search_paths

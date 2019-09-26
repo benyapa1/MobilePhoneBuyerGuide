@@ -119,13 +119,9 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
     func displayTableViewFromApi(viewModel: MobileList.ShowListMobile.ViewModel) {
         if let list = viewModel.list {
             self.mobiles = list
-            DispatchQueue.main.async { [weak self] () in
-                self?.tableView.reloadData()
-            }
+            self.tableView.reloadData()
         } else if let error = viewModel.error {
-            DispatchQueue.main.async { [weak self] () in
-                self?.hideAllElementView()
-            }
+            self.hideAllElementView()
             showErrorAlert(error: error)
         }
     }

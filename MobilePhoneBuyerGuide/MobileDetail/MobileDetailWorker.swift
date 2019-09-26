@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Alamofire
 
 protocol MobileDetailStoreProtocol {
-    func getData(url: String, _ completion: @escaping (Result<[MobileImage],Error>) -> Void)
+    func getData(url: String, _ completion: @escaping (Result<[MobileImage]>) -> Void)
 }
 
 class MobileDetailWorker {
@@ -22,7 +23,7 @@ class MobileDetailWorker {
 
   // MARK: - Business Logic
 
-    func doGetAPI(url: String,_ completion: @escaping (Result<[MobileImage],Error>) -> Void) {
+    func doGetAPI(url: String,_ completion: @escaping (Result<[MobileImage]>) -> Void) {
     // NOTE: Do the work
     store.getData(url: url) {
       // The worker may perform some small business logic before returning the result to the Interactor

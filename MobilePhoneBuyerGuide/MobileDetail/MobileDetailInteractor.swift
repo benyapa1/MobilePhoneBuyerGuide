@@ -29,7 +29,7 @@ class MobileDetailInteractor: MobileDetailInteractorInterface {
     func doGetAPI(request: MobileDetail.ShowScene.Request) {
         self.urlGetAPI =  "https://scb-test-mobile.herokuapp.com/api/mobiles/\(request.mobileId)/images/"
         worker?.doGetAPI(url: self.urlGetAPI ?? "") { [weak self] in
-            if case let Result.success(images) = $0 {
+            if case let .success(images) = $0 {
                 self?.images = images.map({ (image) -> MobileImage in
                     if (image.url.starts(with: "https://")){
                         return image

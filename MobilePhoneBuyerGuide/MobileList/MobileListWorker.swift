@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Alamofire
 
 protocol MobileListStoreProtocol {
-  func getData(_ completion: @escaping (Result<[Mobile], Error>) -> Void)
+  func getData(_ completion: @escaping (Result<[Mobile]>) -> Void)
 }
 
 class MobileListWorker {
@@ -23,7 +24,7 @@ class MobileListWorker {
 
   // MARK: - Business Logic
 
-  func doGetDataFromAPI(_ completion: @escaping (Result<[Mobile], Error>) -> Void) {
+  func doGetDataFromAPI(_ completion: @escaping (Result<[Mobile]>) -> Void) {
     // NOTE: Do the work
     store.getData { (result) in
         completion(result)
