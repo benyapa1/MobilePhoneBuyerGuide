@@ -47,20 +47,11 @@ class MobileListInteractor: MobileListInteractorInterface {
         if  let sortType = request.sortingType {
             switch sortType {
             case .priceHighToLow:
-                list.sort(by: { (mobile1, mobile2) -> Bool in
-                    let doCompare1 = doCompare(isMoreThan: true)
-                    return doCompare1(mobile1.price, mobile2.price)
-                })
+                list = list.sorted { $0.price > $1.price }
             case .priceLowToHigh:
-                list.sort(by: { (mobile1, mobile2) -> Bool in
-                    let doCompare1 = doCompare(isMoreThan: false)
-                    return doCompare1(mobile1.price, mobile2.price)
-                })
+                list = list.sorted { $0.price < $1.price }
             case .rating:
-                list.sort(by: { (mobile1, mobile2) -> Bool in
-                    let doCompare1 = doCompare(isMoreThan: true)
-                    return doCompare1(mobile1.rating, mobile2.rating)
-                })
+                list = list.sorted { $0.rating > $1.rating }
             }
             self.model? = list
         }
@@ -71,16 +62,6 @@ class MobileListInteractor: MobileListInteractorInterface {
         }
         let response = MobileList.showListWithSorting.Response(list: list)
         self.presenter.presentFromSorting(response: response)
-    }
-    
-    private func doCompare(isMoreThan: Bool) -> (Float, Float) -> Bool {
-        func lessThan(mobile1: Float, mobile2: Float) -> Bool {
-            return mobile1 < mobile2
-        }
-        func moreThan(mobile1: Float, mobile2: Float) -> Bool {
-            return mobile1 > mobile2
-        }
-        return isMoreThan ? moreThan : lessThan
     }
     
     func addFav(request: MobileList.addfav.Request) {
