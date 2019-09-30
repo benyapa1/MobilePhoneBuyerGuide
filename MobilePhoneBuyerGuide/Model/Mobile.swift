@@ -59,7 +59,7 @@ struct MobileForShow: Equatable {
     var isFav: Bool
 }
 
-struct MobileImage: Codable {
+struct MobileImage: Codable, Equatable {
     let mobileId: Int
     var url: String
     let id: Int
