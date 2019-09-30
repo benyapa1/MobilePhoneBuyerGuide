@@ -35,6 +35,8 @@
 		C058C8172338CC720057345D /* Mobile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058C80F2338CC720057345D /* Mobile.swift */; };
 		C0CD9430233E10EE00CAD9CB /* MobileListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD942E233E10EE00CAD9CB /* MobileListPresenterTests.swift */; };
 		C0CD9431233E10EE00CAD9CB /* MobileListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD942F233E10EE00CAD9CB /* MobileListInteractorTests.swift */; };
+		C0CD94342341BB4D00CAD9CB /* MobileDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD94322341BB4D00CAD9CB /* MobileDetailInteractorTests.swift */; };
+		C0CD94352341BB4D00CAD9CB /* MobileDetailPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD94332341BB4D00CAD9CB /* MobileDetailPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 		C058C80F2338CC720057345D /* Mobile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mobile.swift; sourceTree = "<group>"; };
 		C0CD942E233E10EE00CAD9CB /* MobileListPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileListPresenterTests.swift; sourceTree = "<group>"; };
 		C0CD942F233E10EE00CAD9CB /* MobileListInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileListInteractorTests.swift; sourceTree = "<group>"; };
+		C0CD94322341BB4D00CAD9CB /* MobileDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailInteractorTests.swift; sourceTree = "<group>"; };
+		C0CD94332341BB4D00CAD9CB /* MobileDetailPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailPresenterTests.swift; sourceTree = "<group>"; };
 		CE496A973F90EF639583ABAD /* Pods-MobilePhoneBuyerGuide.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePhoneBuyerGuide.debug.xcconfig"; path = "Target Support Files/Pods-MobilePhoneBuyerGuide/Pods-MobilePhoneBuyerGuide.debug.xcconfig"; sourceTree = "<group>"; };
 		D85BEA95B07AD383745F8181 /* Pods-MobilePhoneBuyerGuide.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePhoneBuyerGuide.release.xcconfig"; path = "Target Support Files/Pods-MobilePhoneBuyerGuide/Pods-MobilePhoneBuyerGuide.release.xcconfig"; sourceTree = "<group>"; };
 		D90943712E0CB3B16A658874 /* Pods-MobilePhoneBuyerGuideTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MobilePhoneBuyerGuideTests.release.xcconfig"; path = "Target Support Files/Pods-MobilePhoneBuyerGuideTests/Pods-MobilePhoneBuyerGuideTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -165,6 +169,7 @@
 		501C60A82330937F00F02430 /* MobilePhoneBuyerGuideTests */ = {
 			isa = PBXGroup;
 			children = (
+				C0CD94362341BB5200CAD9CB /* MobileDetail */,
 				C0CD942D233E10EE00CAD9CB /* MobileList */,
 				501C60AB2330937F00F02430 /* Info.plist */,
 			);
@@ -263,6 +268,15 @@
 				C0CD942F233E10EE00CAD9CB /* MobileListInteractorTests.swift */,
 			);
 			path = MobileList;
+			sourceTree = "<group>";
+		};
+		C0CD94362341BB5200CAD9CB /* MobileDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C0CD94332341BB4D00CAD9CB /* MobileDetailPresenterTests.swift */,
+				C0CD94322341BB4D00CAD9CB /* MobileDetailInteractorTests.swift */,
+			);
+			path = MobileDetail;
 			sourceTree = "<group>";
 		};
 		C7CE3EBDBA0A7CFFE3328308 /* Frameworks */ = {
@@ -522,7 +536,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C0CD94342341BB4D00CAD9CB /* MobileDetailInteractorTests.swift in Sources */,
 				C0CD9431233E10EE00CAD9CB /* MobileListInteractorTests.swift in Sources */,
+				C0CD94352341BB4D00CAD9CB /* MobileDetailPresenterTests.swift in Sources */,
 				C0CD9430233E10EE00CAD9CB /* MobileListPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

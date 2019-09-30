@@ -69,9 +69,9 @@ class MobileListInteractor: MobileListInteractorInterface {
     }
     
     func getDataFromPage(request: MobileList.changePage.Request) {
-        guard let isFavPage = request.isFavPage else { return }
+//        guard let isFavPage = request.isFavPage else { return }
         var list: [Mobile]?
-        if isFavPage {
+        if request.isFavPage {
             list = self.model?.filter { (item) -> Bool in
                 return item.isFav
             }

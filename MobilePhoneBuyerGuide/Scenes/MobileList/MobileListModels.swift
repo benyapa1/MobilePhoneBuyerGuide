@@ -37,7 +37,7 @@ struct MobileList {
     
     struct changePage {
         struct Request {
-            var isFavPage: Bool?
+            var isFavPage: Bool
         }
         struct Response {
             var list: [Mobile]
