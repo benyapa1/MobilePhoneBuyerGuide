@@ -27,7 +27,7 @@ enum SortType {
     case rating
 }
 
-struct Mobile: Codable {
+struct Mobile: Codable, Equatable {
     let thumbImageURL: String
     let brand: String
     let price: Float
@@ -48,7 +48,7 @@ struct Mobile: Codable {
     }
 }
 
-struct MobileForShow {
+struct MobileForShow: Equatable {
     let thumbImageURL: String
     let brand: String
     let price: String
@@ -59,7 +59,7 @@ struct MobileForShow {
     var isFav: Bool
 }
 
-struct MobileImage: Codable {
+struct MobileImage: Codable, Equatable {
     let mobileId: Int
     var url: String
     let id: Int

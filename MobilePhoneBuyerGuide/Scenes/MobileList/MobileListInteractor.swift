@@ -17,11 +17,9 @@ protocol MobileListInteractorInterface {
     
     var model: [Mobile]? { get }
     var error: Error? { get }
-    var dict: [Int : Mobile]? { get }
 }
 
 class MobileListInteractor: MobileListInteractorInterface {
-    var dict: [Int : Mobile]?
     var presenter: MobileListPresenterInterface!
     var worker: MobileListWorker?
     var model: [Mobile]?
@@ -47,20 +45,11 @@ class MobileListInteractor: MobileListInteractorInterface {
         if  let sortType = request.sortingType {
             switch sortType {
             case .priceHighToLow:
-                list.sort(by: { (mobile1, mobile2) -> Bool in
-                    let doCompare1 = doCompare(isMoreThan: true)
-                    return doCompare1(mobile1.price, mobile2.price)
-                })
+                list = list.sorted { $0.price > $1.price }
             case .priceLowToHigh:
-                list.sort(by: { (mobile1, mobile2) -> Bool in
-                    let doCompare1 = doCompare(isMoreThan: false)
-                    return doCompare1(mobile1.price, mobile2.price)
-                })
+                list = list.sorted { $0.price < $1.price }
             case .rating:
-                list.sort(by: { (mobile1, mobile2) -> Bool in
-                    let doCompare1 = doCompare(isMoreThan: true)
-                    return doCompare1(mobile1.rating, mobile2.rating)
-                })
+                list = list.sorted { $0.rating > $1.rating }
             }
             self.model? = list
         }
@@ -73,16 +62,6 @@ class MobileListInteractor: MobileListInteractorInterface {
         self.presenter.presentFromSorting(response: response)
     }
     
-    private func doCompare(isMoreThan: Bool) -> (Float, Float) -> Bool {
-        func lessThan(mobile1: Float, mobile2: Float) -> Bool {
-            return mobile1 < mobile2
-        }
-        func moreThan(mobile1: Float, mobile2: Float) -> Bool {
-            return mobile1 > mobile2
-        }
-        return isMoreThan ? moreThan : lessThan
-    }
-    
     func addFav(request: MobileList.addfav.Request) {
         self.model?[request.index].isFav = request.isFav
         let response = MobileList.addfav.Response(list: self.model ?? [])
@@ -90,9 +69,9 @@ class MobileListInteractor: MobileListInteractorInterface {
     }
     
     func getDataFromPage(request: MobileList.changePage.Request) {
-        guard let isFavPage = request.isFavPage else { return }
+//        guard let isFavPage = request.isFavPage else { return }
         var list: [Mobile]?
-        if isFavPage {
+        if request.isFavPage {
             list = self.model?.filter { (item) -> Bool in
                 return item.isFav
             }
