@@ -12,7 +12,6 @@ protocol MobileDetailInteractorInterface {
     func doGetAPI(request: MobileDetail.ShowScene.Request)
     var images: [MobileImage]? { get }
     var error: Error? { get }
-    var urlGetAPI: String? { get }
     
 }
 
@@ -21,27 +20,26 @@ class MobileDetailInteractor: MobileDetailInteractorInterface {
     var worker: MobileDetailWorker?
     var images: [MobileImage]?
     var error: Error?
-    var urlGetAPI: String?
     
     
     // MARK: - Business logic
     
     func doGetAPI(request: MobileDetail.ShowScene.Request) {
-        self.urlGetAPI =  "https://scb-test-mobile.herokuapp.com/api/mobiles/\(request.mobileId)/images/"
-        worker?.doGetAPI(url: self.urlGetAPI ?? "") { [weak self] in
+        let urlGetAPI =  "https://scb-test-mobile.herokuapp.com/api/mobiles/\(request.mobileId)/images/"
+        worker?.doGetAPI(url: urlGetAPI) { [weak self] in
             if case let Result.success(images) = $0 {
                 self?.images = images.map({ (image) -> MobileImage in
                     if (image.url.starts(with: "https://")){
                         return image
-                    } else {
-                        if let index = image.url.firstIndex(of: "w") , image.url.contains("www."){
+                    } else if let index = image.url.firstIndex(of: "w") , image.url.contains("www."){
                             let url = image.url.suffix(from: index)
                             return MobileImage(mobileId: image.mobileId,
                                                url: "https://" + String(url),
                                                id: image.id)
-                        }
-                        return image
                     }
+                    return MobileImage(mobileId: image.mobileId,
+                                       url: "https://www." + String(image.url),
+                                        id: image.id)
                 })
             } else if case let .failure(error) = $0{
                 self?.error = error
