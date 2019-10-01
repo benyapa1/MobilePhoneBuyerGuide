@@ -83,14 +83,16 @@ class MobileListInteractorTests: XCTestCase {
                                 description: "blah blah",
                                 name: "samsung galaxy",
                                 rating: 4.6,
-                                id: 1),
+                                id: 1,
+                                isFav: true),
                         Mobile(thumbImageURL: "",
                                 brand: "samsung",
                                 price: 170.0,
                                 description: "blah blah",
                                 name: "samsung galaxy",
                                 rating: 3.1,
-                                id: 2)]
+                                id: 2,
+                                isFav: false)]
         
         
         override func doGetDataFromAPI(_ completion: @escaping (Result<[Mobile], Error>) -> Void) {
