@@ -18,4 +18,8 @@ target 'MobilePhoneBuyerGuide' do
     # Pods for testing
   end
 
+  target 'MobileGuideMessage' do
+    pod 'Kingfisher', '~> 5.0'
+  end
+
 end
