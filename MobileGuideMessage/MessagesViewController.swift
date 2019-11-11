@@ -16,6 +16,12 @@ class MessagesViewController: MSMessagesAppViewController {
   var list: [String] = ["list1", "list2", "list3", "list4", "list5", "list6"]
   
   override func viewDidLoad() {
+    
+    let defaults = UserDefaults.init(suiteName: "group.scb.mobileMessages")
+    if let savedRecipes = defaults?.array(forKey: "myRecipes") as? [String] {
+      _ = savedRecipes
+      print(savedRecipes)
+    }
     super.viewDidLoad()
   }
   

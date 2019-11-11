@@ -127,9 +127,9 @@
 		C058C80D2338CC720057345D /* MobileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileListViewController.swift; sourceTree = "<group>"; };
 		C058C80E2338CC720057345D /* MobileListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileListInteractor.swift; sourceTree = "<group>"; };
 		C058C80F2338CC720057345D /* Mobile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mobile.swift; sourceTree = "<group>"; };
-		C08637F02379151B009C9BA7 /* MobilePhoneBuyerGuideDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MobilePhoneBuyerGuideDebug.entitlements; sourceTree = "<group>"; };
-		C08637F123791546009C9BA7 /* MobileGuideMessageDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MobileGuideMessageDebug.entitlements; sourceTree = "<group>"; };
 		C08637F323791928009C9BA7 /* messagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = messagesTableViewCell.swift; sourceTree = "<group>"; };
+		C08637F823794EB0009C9BA7 /* MobilePhoneBuyerGuide.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MobilePhoneBuyerGuide.entitlements; sourceTree = "<group>"; };
+		C08637F923794ED6009C9BA7 /* MobileGuideMessage.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MobileGuideMessage.entitlements; sourceTree = "<group>"; };
 		C0CD942E233E10EE00CAD9CB /* MobileListPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileListPresenterTests.swift; sourceTree = "<group>"; };
 		C0CD942F233E10EE00CAD9CB /* MobileListInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileListInteractorTests.swift; sourceTree = "<group>"; };
 		C0CD94322341BB4D00CAD9CB /* MobileDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailInteractorTests.swift; sourceTree = "<group>"; };
@@ -205,7 +205,7 @@
 		501C60932330937D00F02430 /* MobilePhoneBuyerGuide */ = {
 			isa = PBXGroup;
 			children = (
-				C08637F02379151B009C9BA7 /* MobilePhoneBuyerGuideDebug.entitlements */,
+				C08637F823794EB0009C9BA7 /* MobilePhoneBuyerGuide.entitlements */,
 				C037C3F5233B7686006484FA /* Storyboard */,
 				C037C3FB233CC639006484FA /* Scenes */,
 				C037C3F1233B3FEB006484FA /* Cell */,
@@ -304,7 +304,7 @@
 		C04C98602379125D009FE844 /* MobileGuideMessage */ = {
 			isa = PBXGroup;
 			children = (
-				C08637F123791546009C9BA7 /* MobileGuideMessageDebug.entitlements */,
+				C08637F923794ED6009C9BA7 /* MobileGuideMessage.entitlements */,
 				C04C98612379125D009FE844 /* MessagesViewController.swift */,
 				C08637F323791928009C9BA7 /* messagesTableViewCell.swift */,
 				C04C98632379125D009FE844 /* MainInterface.storyboard */,
@@ -875,6 +875,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MobilePhoneBuyerGuide/MobilePhoneBuyerGuide.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = WM37L5B6W4;
 				INFOPLIST_FILE = MobilePhoneBuyerGuide/Info.plist;
@@ -999,7 +1000,9 @@
 			baseConfigurationReference = D10BD5F91AD259358FC676C4 /* Pods-MobilePhoneBuyerGuide-MobileGuideMessage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon";
+				CODE_SIGN_ENTITLEMENTS = MobileGuideMessage/MobileGuideMessage.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WM37L5B6W4;
 				INFOPLIST_FILE = MobileGuideMessage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (

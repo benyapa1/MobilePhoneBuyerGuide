@@ -65,6 +65,11 @@ class MobileListViewController: UIViewController, MobileListViewControllerInterf
         allButton.isSelected = true
         tableView.tableFooterView = UIView()
         requestGetAPI()
+
+      let recipes = ["Recipe 1", "Recipe 2", "Recipe 3", "Recipe 4", "Recipe 5", "Recipe 6", "Recipe 7"]
+         let defaults = UserDefaults.init(suiteName: "group.scb.mobileMessages")
+         defaults?.set(recipes, forKey: "myRecipes")
+         defaults?.synchronize()
     }
     
     // MARK: - Event handling
