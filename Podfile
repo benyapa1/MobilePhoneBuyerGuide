@@ -7,10 +7,12 @@ target 'MobilePhoneBuyerGuide' do
 
   # Pods for MobilePhoneBuyerGuide
   pod 'Kingfisher', '~> 5.0'
+  pod 'RealmSwift'
 
   target 'MobilePhoneBuyerGuideTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RealmSwift'
   end
 
   target 'MobilePhoneBuyerGuideUITests' do
