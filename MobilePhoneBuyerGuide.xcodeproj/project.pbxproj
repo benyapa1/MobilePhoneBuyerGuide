@@ -33,6 +33,7 @@
 		C058C8152338CC720057345D /* MobileListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058C80D2338CC720057345D /* MobileListViewController.swift */; };
 		C058C8162338CC720057345D /* MobileListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058C80E2338CC720057345D /* MobileListInteractor.swift */; };
 		C058C8172338CC720057345D /* Mobile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C058C80F2338CC720057345D /* Mobile.swift */; };
+		C05CC41E241B89E000E0AB76 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = C05CC41D241B89DF00E0AB76 /* Database.swift */; };
 		C0CD9430233E10EE00CAD9CB /* MobileListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD942E233E10EE00CAD9CB /* MobileListPresenterTests.swift */; };
 		C0CD9431233E10EE00CAD9CB /* MobileListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD942F233E10EE00CAD9CB /* MobileListInteractorTests.swift */; };
 		C0CD94342341BB4D00CAD9CB /* MobileDetailInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0CD94322341BB4D00CAD9CB /* MobileDetailInteractorTests.swift */; };
@@ -91,6 +92,7 @@
 		C058C80D2338CC720057345D /* MobileListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileListViewController.swift; sourceTree = "<group>"; };
 		C058C80E2338CC720057345D /* MobileListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileListInteractor.swift; sourceTree = "<group>"; };
 		C058C80F2338CC720057345D /* Mobile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mobile.swift; sourceTree = "<group>"; };
+		C05CC41D241B89DF00E0AB76 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		C0CD942E233E10EE00CAD9CB /* MobileListPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileListPresenterTests.swift; sourceTree = "<group>"; };
 		C0CD942F233E10EE00CAD9CB /* MobileListInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobileListInteractorTests.swift; sourceTree = "<group>"; };
 		C0CD94322341BB4D00CAD9CB /* MobileDetailInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileDetailInteractorTests.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				C058C80F2338CC720057345D /* Mobile.swift */,
+				C05CC41D241B89DF00E0AB76 /* Database.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				501C60A12330937F00F02430 /* Sources */,
 				501C60A22330937F00F02430 /* Frameworks */,
 				501C60A32330937F00F02430 /* Resources */,
+				4186A9DB95B503C22A67363F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -421,6 +425,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4186A9DB95B503C22A67363F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobilePhoneBuyerGuideTests/Pods-MobilePhoneBuyerGuideTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MobilePhoneBuyerGuideTests/Pods-MobilePhoneBuyerGuideTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MobilePhoneBuyerGuideTests/Pods-MobilePhoneBuyerGuideTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		47574C6BFC18A6401D8F799C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -528,6 +549,7 @@
 				C058C8142338CC720057345D /* MobileListModels.swift in Sources */,
 				501C60952330937D00F02430 /* AppDelegate.swift in Sources */,
 				C037C3ED233B3FD7006484FA /* MobileDetailModels.swift in Sources */,
+				C05CC41E241B89E000E0AB76 /* Database.swift in Sources */,
 				C037C3EC233B3FD7006484FA /* MobileDetailRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
